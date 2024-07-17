@@ -1,5 +1,4 @@
 #include "PhoneBook.hpp"
-#include <string>
 
 void add_contact(PhoneBook& phonebook)
 {
@@ -19,6 +18,11 @@ int main(int argc, char **argv)
   {
     std::cout << "Enter a Command (ADD | SEARCH | EXIT): ";
     std::getline(std::cin,command);
+    if (std::cin.eof())
+    {
+      std::cout << "\nCioa!\n";
+      exit(1);
+    }
     if (command == "ADD")
     {
       add_contact(phonebook);

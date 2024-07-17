@@ -9,7 +9,7 @@ all : $(NAME)
 
 $(NAME): $(OBJF)
 	@$(CC) $(FLAGS) $^ -o $@
-	@echo "🚀 Mission is complete!"
+	@echo "🚀🚀🚀 Mission complete!"
 
 %.o : %.cpp Contact.hpp PhoneBook.hpp
 	@$(CC) $(CFLAGS) -c $< -o $@ 

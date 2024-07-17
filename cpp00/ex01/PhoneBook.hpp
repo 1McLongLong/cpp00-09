@@ -3,6 +3,9 @@
 #include "Contact.hpp"
 #include <iomanip>
 #include <cctype>
+#include <cstdio>
+#include <cstdlib>
+#include <iostream>
 
 class PhoneBook {
   Contact contacts[8];

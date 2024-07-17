@@ -1,8 +1,5 @@
 #include "PhoneBook.hpp"
 #include "Contact.hpp"
-#include <cctype>
-#include <cstdio>
-#include <cstdlib>
 
 int PhoneBook::n_contacts = 0;
 
@@ -21,7 +18,6 @@ void PhoneBook::set_contact()
   contacts[n_contacts].set_darkest_secret();
   contacts[n_contacts].set_contact_index(n_contacts + 1);
 
-
   std::cout << contacts[n_contacts].get_first_name()<<" is added to the phonebook [" << contacts[n_contacts].get_index() << "/8]\n";
   n_contacts++;
 }
@@ -38,6 +34,11 @@ void PhoneBook::get_list()
     while (1)
     {
       std::getline(std::cin, str);
+      if (std::cin.eof())
+      {
+        std::cout << "\nCioa!\n";
+        exit(1);
+      }
       int i = atoi(str.c_str());
       if (i > 0 && i < n_contacts + 1) {
         contacts[i - 1].get_contact();
@@ -52,8 +53,7 @@ void PhoneBook::get_list()
 
 void PhoneBook::display_list()
 {
-  std::cout << '|';
-  std::cout << "     Index|First Name| Last Name|  Nickname|\n";
+  std::cout << "|     Index|First Name| Last Name|  Nickname|\n";
   int i = 0;
   int k;
   if (max)
@@ -77,8 +77,8 @@ void PhoneBook::display_list()
     }
     if (contacts[i].get_last_name().length() > 10) {
       std::string str = contacts[i].get_last_name();
-      str[9] = '.';
-      str[10] = '\0';
+      str = str.substr(0, 9);
+      str.insert(9, ".");
       std::cout << str << '|';
     }
     else { 
@@ -87,9 +87,9 @@ void PhoneBook::display_list()
     }
     if (contacts[i].get_nick_name().length() > 10) {
       std::string str = contacts[i].get_nick_name();
-      str[9] = '.';
-      str[10] = '\0';
-      std::cout << str << '|';
+      str = str.substr(0, 9);
+      str.insert(9, ".");
+      std::cout << str << "|\n";
     }
     else { 
       std::cout << std::setw(10);
