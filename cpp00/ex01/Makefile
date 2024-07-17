@@ -1,17 +1,17 @@
 CC = c++ 
-CFLAGS = -Wall -Wextra -Werror -std=c++98
+FLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRCF = main.c PhoneBook.cpp PhoneBook.hpp
-OBJF = $(SRCF:.c=.o)
+SRCF = main.cpp PhoneBook.cpp Contact.cpp
+OBJF = $(SRCF:.cpp=.o)
 NAME = ./phonebook
 
 all : $(NAME)
 
 $(NAME): $(OBJF)
-	@$(CC) $(CFLAGS) $^ -o $@
+	@$(CC) $(FLAGS) $^ -o $@
 	@echo "🚀 Mission is complete!"
 
-%.o : %.c ./Contact.hpp ./PhoneBook.hpp
+%.o : %.cpp Contact.hpp PhoneBook.hpp
 	@$(CC) $(CFLAGS) -c $< -o $@ 
 
 clean:

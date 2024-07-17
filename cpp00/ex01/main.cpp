@@ -1,15 +1,14 @@
 #include "PhoneBook.hpp"
-#include <iostream>
+#include <string>
 
 void add_contact(PhoneBook& phonebook)
 {
   phonebook.set_contact();
-  std::cout << "You just made the LIST!\n";
 }
 
 void get_contact(PhoneBook& phonebook)
 {
-  phonebook.get_contact();
+  phonebook.get_list();
 }
 
 int main(int argc, char **argv)
@@ -18,8 +17,8 @@ int main(int argc, char **argv)
   std::string command;
   while (1)
   {
-    std::cout << "Enter a Command: ";
-    std::cin >> command;
+    std::cout << "Enter a Command (ADD | SEARCH | EXIT): ";
+    std::getline(std::cin,command);
     if (command == "ADD")
     {
       add_contact(phonebook);
@@ -30,7 +29,7 @@ int main(int argc, char **argv)
     }
     else if (command == "EXIT") {
       std::cout << "I'm afraid you have to LEAVE!\n";
-      exit(1);
+      break;
     }
   }
 }
