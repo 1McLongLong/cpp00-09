@@ -1,5 +1,6 @@
 #include "Contact.hpp"
 
+// CHECK FOR SPACES AS INPUT
 void Contact::set_first_name()
 {
   std::cout << "Enter your first name: ";
