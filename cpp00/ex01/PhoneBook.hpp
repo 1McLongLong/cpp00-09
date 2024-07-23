@@ -1,4 +1,5 @@
-#pragma once
+#ifndef PHONEBOOK_H
+#define PHONEBOOK_H
 
 #include "Contact.hpp"
 #include <iomanip>
@@ -16,3 +17,5 @@ class PhoneBook {
    void get_list();
    void display_list();
 };
+
+#endif

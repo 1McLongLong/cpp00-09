@@ -1,4 +1,5 @@
-#pragma once
+#ifndef CONTACT_H
+#define CONTACT_H
 
 #include <string>
 #include <iostream>
@@ -23,3 +24,5 @@ class Contact {
     std::string get_last_name();
     std::string get_nick_name();
 };
+
+#endif

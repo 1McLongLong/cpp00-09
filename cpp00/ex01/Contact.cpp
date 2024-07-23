@@ -1,10 +1,9 @@
 #include "Contact.hpp"
 
-// CHECK FOR SPACES AS INPUT
 void Contact::set_first_name()
 {
   std::cout << "Enter your first name: ";
-  std::getline(std::cin, m_first_name); 
+  std::getline(std::cin >> std::ws, m_first_name); 
   if (std::cin.eof())
   {
     std::cout << "\nCioa!\n";
@@ -15,7 +14,7 @@ void Contact::set_first_name()
 void Contact::set_last_name()
 {
   std::cout << "Enter your last name: ";
-  std::getline(std::cin, m_last_name); 
+  std::getline(std::cin >> std::ws, m_first_name); 
   if (std::cin.eof())
   {
     std::cout << "\nCioa!\n";
@@ -26,7 +25,7 @@ void Contact::set_last_name()
 void Contact::set_nick_name()
 {
   std::cout << "Enter your nick name: ";
-  std::getline(std::cin, m_nick_name); 
+  std::getline(std::cin >> std::ws, m_first_name); 
   if (std::cin.eof())
   {
     std::cout << "\nCioa!\n";
@@ -36,7 +35,7 @@ void Contact::set_nick_name()
 void Contact::set_darkest_secret()
 {
   std::cout << "Enter your darkest secret: ";
-  std::getline(std::cin, m_darkest_secret); 
+  std::getline(std::cin >> std::ws, m_first_name); 
   if (std::cin.eof())
   {
     std::cout << "\nCioa!\n";
@@ -46,7 +45,7 @@ void Contact::set_darkest_secret()
 void Contact::set_phone_number()
 {
   std::cout << "Enter your phone number: ";
-  std::getline(std::cin, m_phone_number); 
+  std::getline(std::cin >> std::ws, m_first_name); 
   if (std::cin.eof())
   {
     std::cout << "\nCioa!\n";
