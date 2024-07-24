@@ -1,9 +1,9 @@
 CC = c++ 
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRCF = tests.cpp Account.cpp
+SRCF = main.cpp newZombie.cpp Zombie.cpp randomChump.cpp
 OBJF = $(SRCF:.cpp=.o)
-NAME = ./a.out
+NAME = ./braiinz
 
 all : $(NAME)
 
@@ -11,7 +11,7 @@ $(NAME): $(OBJF)
 	@$(CC) $(FLAGS) $^ -o $@
 	@echo "🚀🚀🚀 Mission complete!"
 
-%.o : %.cpp Account.hpp
+%.o : %.cpp Zombie.hpp
 	@$(CC) $(CFLAGS) -c $< -o $@ 
 
 clean:
