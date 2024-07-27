@@ -3,7 +3,7 @@ FLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRCF = main.cpp Sed.cpp
 OBJF = $(SRCF:.cpp=.o)
-NAME = ./sed
+NAME = ./sed_losers
 
 all : $(NAME)
 
@@ -11,7 +11,7 @@ $(NAME): $(OBJF)
 	@$(CC) $(FLAGS) $^ -o $@
 	@echo "🚀🚀🚀 Mission complete!"
 
-%.o : %.cpp Zombie.hpp
+%.o : %.cpp Sed.hpp
 	@$(CC) $(CFLAGS) -c $< -o $@ 
 
 clean:
