@@ -1,32 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Sed.hpp                                            :+:      :+:    :+:   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: touahman <touahman@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/27 18:50:45 by touahman          #+#    #+#             */
-/*   Updated: 2024/07/27 18:50:47 by touahman         ###   ########.fr       */
+/*   Created: 2024/07/27 23:10:14 by touahman          #+#    #+#             */
+/*   Updated: 2024/07/27 23:10:16 by touahman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SED_HPP
-#define SED_HPP
+#ifndef HARL_HPP
+#define HARL_HPP
 
 #include <iostream>
-#include <fstream>
 
 
-class Sed 
+class Harl 
 {
-  std::string filename;
-  std::string str1;
-  std::string str2;
-  void replace_string(std::string &str, std::string &str1,std::string &str2);
-
+  void debug( void );
+  void info( void );
+  void warning( void );
+  void error( void );
+  
   public:
-  int sed_string();
-  Sed(std::string &file, std::string &s1, std::string &s2);
+  void complain( std::string level );
 };
+
 
 #endif

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Sed.cpp                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: touahman <touahman@student.1337.ma>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/07/27 18:50:34 by touahman          #+#    #+#             */
+/*   Updated: 2024/07/27 19:46:44 by touahman         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Sed.hpp"
 #include <string>
 
@@ -25,7 +37,7 @@ int Sed::sed_string()
     return 1;
   
   std::ofstream new_file(filename + ".replace");
-  if (!file.is_open()) 
+  if (!new_file.is_open()) 
     return 1;
 
   while (std::getline(file, line))
@@ -35,6 +47,9 @@ int Sed::sed_string()
   }
   replace_string(str, str1, str2);
   new_file << str;
-
+  
+  file.close();
+  new_file.close();
+  
   return 0;
 }
