@@ -6,7 +6,7 @@
 /*   By: touahman <touahman@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 21:59:23 by touahman          #+#    #+#             */
-/*   Updated: 2024/07/31 03:34:10 by touahman         ###   ########.fr       */
+/*   Updated: 2024/08/05 08:44:29 by touahman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,4 @@ int main( void )
   std::cout << c.getRawBits() << std::endl;
   return 0;
 }
-
-
-
 

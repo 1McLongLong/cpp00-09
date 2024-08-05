@@ -14,7 +14,7 @@ void Contact::set_first_name()
 void Contact::set_last_name()
 {
   std::cout << "Enter your last name: ";
-  std::getline(std::cin >> std::ws, m_first_name); 
+  std::getline(std::cin >> std::ws, m_last_name); 
   if (std::cin.eof())
   {
     std::cout << "\nCioa!\n";
@@ -25,7 +25,7 @@ void Contact::set_last_name()
 void Contact::set_nick_name()
 {
   std::cout << "Enter your nick name: ";
-  std::getline(std::cin >> std::ws, m_first_name); 
+  std::getline(std::cin >> std::ws, m_nick_name); 
   if (std::cin.eof())
   {
     std::cout << "\nCioa!\n";
@@ -35,7 +35,7 @@ void Contact::set_nick_name()
 void Contact::set_darkest_secret()
 {
   std::cout << "Enter your darkest secret: ";
-  std::getline(std::cin >> std::ws, m_first_name); 
+  std::getline(std::cin >> std::ws, m_darkest_secret); 
   if (std::cin.eof())
   {
     std::cout << "\nCioa!\n";
@@ -45,7 +45,7 @@ void Contact::set_darkest_secret()
 void Contact::set_phone_number()
 {
   std::cout << "Enter your phone number: ";
-  std::getline(std::cin >> std::ws, m_first_name); 
+  std::getline(std::cin >> std::ws, m_phone_number);
   if (std::cin.eof())
   {
     std::cout << "\nCioa!\n";
@@ -68,6 +68,4 @@ void Contact::get_contact()
   std::cout << "Phone Number: " << m_phone_number << '\n';
   std::cout << "Darkest Secret: " << m_darkest_secret << '\n';
 }
-
-
 

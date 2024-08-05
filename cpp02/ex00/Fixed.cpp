@@ -14,6 +14,16 @@ Fixed::Fixed(const Fixed &copy)
   *this = copy;
 }
 
+Fixed &Fixed::operator=(const Fixed &other)
+{
+  std::cout << "Copy assignment operator called\n";
+  if(this != &other)
+  {
+    this->nbr = other.getRawBits();
+  }
+  return *this;
+}
+
 Fixed::~Fixed()
 {
   std::cout << "Destructor called\n";
