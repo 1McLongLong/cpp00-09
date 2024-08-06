@@ -1,7 +1,7 @@
 CC = c++ 
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRCF = main.cpp Harl.cpp
+SRCF = main.cpp Fixed.cpp
 OBJF = $(SRCF:.cpp=.o)
 NAME = ./Harl
 
@@ -11,7 +11,7 @@ $(NAME): $(OBJF)
 	@$(CC) $(FLAGS) $^ -o $@
 	@echo "🚀🚀🚀 Mission complete!"
 
-%.o : %.cpp Harl.hpp
+%.o : %.cpp Fixed.hpp
 	@$(CC) $(CFLAGS) -c $< -o $@ 
 
 clean:
