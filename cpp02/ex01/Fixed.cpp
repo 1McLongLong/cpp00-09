@@ -8,6 +8,18 @@ Fixed::Fixed()
   std::cout << "Default constructor called\n";
 }
 
+Fixed::Fixed(const int nb)
+{
+  nbr = nb;
+  std::cout << "Int constructor called\n";
+}
+
+Fixed::Fixed(const float nb)
+{
+  nbr = nb;
+  std::cout << "Float constructor called\n";
+}
+
 Fixed::Fixed(const Fixed &copy)
 {
   std::cout << "Copy constructor called\n";
@@ -29,15 +41,26 @@ Fixed::~Fixed()
   std::cout << "Destructor called\n";
 }
 
-// int Fixed::getRawBits( void ) const
-// {
-//   std::cout << "getRawBits member function called\n";
-//   return (nbr);
-// }
-//
-// void Fixed::setRawBits( int const raw )
-// {
-//   nbr = raw;
-// }
+int Fixed::getRawBits( void ) const
+{
+  std::cout << "getRawBits member function called\n";
+  return (nbr);
+}
+
+void Fixed::setRawBits( int const raw )
+{
+  nbr = raw;
+}
+
+// float Fixed::toFloat( void ) const
+// {}
+
+// int Fixed::toInt( void ) const;
+// {}
 
 
+// std::ostream & operator<<(std::ostream & o, Fixed const & rhs)
+// {
+//     o << rhs.getValue();
+//     return o;
+// }
