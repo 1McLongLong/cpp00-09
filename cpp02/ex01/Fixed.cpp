@@ -8,15 +8,16 @@ Fixed::Fixed()
   std::cout << "Default constructor called\n";
 }
 
-Fixed::Fixed(const int nb)
+Fixed::Fixed(const int int_value)
 {
-  nbr = nb << bits;
+  nbr = int_value * (1 << bits);
   std::cout << "Int constructor called\n";
 }
 
-Fixed::Fixed(const float nb)
+Fixed::Fixed(const float float_value)
 {
-	nbr = roundf(nb * (1 << bits));
+  int scale = 1 << bits;
+	nbr = roundf(float_value * scale);
   std::cout << "Float constructor called\n";
 }
 
