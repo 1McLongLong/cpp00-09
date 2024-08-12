@@ -184,3 +184,6 @@ const Fixed& Fixed::max(Fixed const &point1, Fixed const &point2)
   else 
     return point2;
 }
+
+
+
