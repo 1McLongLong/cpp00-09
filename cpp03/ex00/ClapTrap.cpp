@@ -5,7 +5,7 @@ ClapTrap::ClapTrap(std::string name) {
   this->hit_points = 10;
   this->energy_points = 10;
   this->attack_damage = 0;
-  std::cout << "Default constructor called\n";
+  std::cout << "ClapTrap is IN\n";
 }
 
 
@@ -27,15 +27,13 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &copy) {
 }
 
 ClapTrap::~ClapTrap() {
-  std::cout << "Destructor called\n";
+  std::cout << "ClapTrap is OUT\n";
 }
 
 void ClapTrap::attack(const std::string& target)
 {
   if (hit_points <= 0 || energy_points <= 0)
     std::cout << "ClapTrap can't attack anymore unfortunately\n";
-  // else if (energy_points <= 0)
-  //   std::cout << "he deaaaaaaad(I mean " << name << ")\n";
   else
     std::cout << "ClapTrap " << name << " attacks " 
             << target << ", causing " << attack_damage 
@@ -54,9 +52,9 @@ void ClapTrap::takeDamage(unsigned int amount)
 
 void ClapTrap::beRepaired(unsigned int amount)
 {
-  std::cout << "ClapTrap's aura is gaining " << amount << " points\n";
   hit_points += amount;
   if (energy_points > 0)
     energy_points--;
+  std::cout << "ClapTrap's aura is gaining " << amount << " points\n";
 }
 
