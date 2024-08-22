@@ -43,7 +43,6 @@ void ClapTrap::attack(const std::string& target)
 void ClapTrap::takeDamage(unsigned int amount)
 {
   std::cout << "ClapTrap is edging " << amount << " points out of him\n";
-  attack_damage += amount;
   if (hit_points > 0)
     hit_points -= amount;
   if (energy_points > 0)
