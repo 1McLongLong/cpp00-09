@@ -18,7 +18,7 @@ void PhoneBook::set_contact()
   contacts[n_contacts].set_darkest_secret();
   contacts[n_contacts].set_contact_index(n_contacts + 1);
 
-  std::cout << contacts[n_contacts].get_first_name()<<" is added to the phonebook [" << contacts[n_contacts].get_index() << "/8]\n";
+  std::cout << "New contact is added to the phonebook [" << contacts[n_contacts].get_index() << "/8]\n";
   n_contacts++;
 }
 

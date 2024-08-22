@@ -1,56 +1,98 @@
 #include "Contact.hpp"
 
+
+int only_space(std::string &string)
+{
+  int i = 0;
+  while (string[i])
+  {
+    if (string[i] > 32 && string[i] < 127)
+      return 0;
+    i++;
+  }
+  return 1;
+}
+
 void Contact::set_first_name()
 {
-  std::cout << "Enter your first name: ";
-  std::getline(std::cin >> std::ws, m_first_name); 
-  if (std::cin.eof())
+  while (m_first_name.empty())
   {
-    std::cout << "\nCioa!\n";
-    exit(1);
+    std::cout << "Enter your first name: ";
+    std::getline(std::cin, m_first_name); 
+    if (only_space(m_first_name))
+      m_first_name.clear();
+    if (std::cin.eof())
+    {
+      std::cout << "\nCioa!\n";
+      exit(1);
+    }
   }
 }
 
+
 void Contact::set_last_name()
 {
-  std::cout << "Enter your last name: ";
-  std::getline(std::cin >> std::ws, m_last_name); 
-  if (std::cin.eof())
+  while (m_last_name.empty())
   {
-    std::cout << "\nCioa!\n";
-    exit(1);
+    std::cout << "Enter your last name: ";
+    std::getline(std::cin, m_last_name); 
+    if (only_space(m_last_name))
+      m_last_name.clear();
+    if (std::cin.eof())
+    {
+      std::cout << "\nCioa!\n";
+      exit(1);
+    }
   }
 }
 
 void Contact::set_nick_name()
 {
-  std::cout << "Enter your nick name: ";
-  std::getline(std::cin >> std::ws, m_nick_name); 
-  if (std::cin.eof())
+  while (m_nick_name.empty())
   {
-    std::cout << "\nCioa!\n";
-    exit(1);
-  }}
+    std::cout << "Enter your nick name: ";
+    std::getline(std::cin, m_nick_name); 
+    if (only_space(m_nick_name))
+      m_nick_name.clear();
+    if (std::cin.eof())
+    {
+      std::cout << "\nCioa!\n";
+      exit(1);
+    }
+  }
+}
 
 void Contact::set_darkest_secret()
 {
-  std::cout << "Enter your darkest secret: ";
-  std::getline(std::cin >> std::ws, m_darkest_secret); 
-  if (std::cin.eof())
+  while (m_darkest_secret.empty())
   {
-    std::cout << "\nCioa!\n";
-    exit(1);
-  }}
+    std::cout << "Enter your darkest secret: ";
+    std::getline(std::cin >> std::ws, m_darkest_secret); 
+    if (only_space(m_darkest_secret))
+      m_darkest_secret.clear();
+    if (std::cin.eof())
+    {
+      std::cout << "\nCioa!\n";
+      exit(1);
+    }
+  }
+}
 
 void Contact::set_phone_number()
 {
-  std::cout << "Enter your phone number: ";
-  std::getline(std::cin >> std::ws, m_phone_number);
-  if (std::cin.eof())
+  while (m_phone_number.empty())
   {
-    std::cout << "\nCioa!\n";
-    exit(1);
-  }}
+    std::cout << "Enter your phone number: ";
+    std::getline(std::cin >> std::ws, m_phone_number);
+    if (only_space(m_phone_number))
+      m_phone_number.clear();
+    if (std::cin.eof())
+    {
+      std::cout << "\nCioa!\n";
+      exit(1);
+    }
+  }
+}
 
 void Contact::set_contact_index(int index) { m_contact_index = index;}
 
