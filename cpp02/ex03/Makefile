@@ -1,7 +1,7 @@
 CC = c++ 
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRCF = main.cpp Fixed.cpp
+SRCF = main.cpp Fixed.cpp Point.cpp bsp.cpp
 OBJF = $(SRCF:.cpp=.o)
 NAME = ./Fixed
 
@@ -11,7 +11,7 @@ $(NAME): $(OBJF)
 	@$(CC) $(FLAGS) $^ -o $@
 	@echo "🚀🚀🚀 Mission complete!"
 
-%.o : %.cpp Fixed.hpp
+%.o : %.cpp Fixed.hpp Point.hpp
 	@$(CC) $(CFLAGS) -c $< -o $@ 
 
 clean:
