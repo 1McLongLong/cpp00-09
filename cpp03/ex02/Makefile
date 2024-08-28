@@ -3,7 +3,7 @@ FLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRCF = main.cpp ClapTrap.cpp ScavTrap.cpp
 OBJF = $(SRCF:.cpp=.o)
-NAME = ./ScavTrap
+NAME = ./ClapTrap
 
 all : $(NAME)
 

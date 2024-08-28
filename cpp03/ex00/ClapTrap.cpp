@@ -35,25 +35,34 @@ void ClapTrap::attack(const std::string& target)
   if (hit_points <= 0 || energy_points <= 0)
     std::cout << "ClapTrap can't attack anymore unfortunately\n";
   else
+  {
+    energy_points--;
     std::cout << "ClapTrap " << name << " attacks " 
             << target << ", causing " << attack_damage 
             << " points of damage!\n";
+  }
 }
 
 void ClapTrap::takeDamage(unsigned int amount)
 {
-  std::cout << "ClapTrap is edging " << amount << " points out of him\n";
   if (hit_points > 0)
+  {
     hit_points -= amount;
-  if (energy_points > 0)
-    energy_points--;
+    std::cout << "ClapTrap is edging " << amount << " points out of him\n";
+  }
+  else 
+    std::cout << "ClapTrap is out of hit_points\n";
 }
 
 void ClapTrap::beRepaired(unsigned int amount)
 {
-  hit_points += amount;
-  if (energy_points > 0)
+  if (energy_points > 0 && hit_points > 0)
+  {
+    hit_points += amount;
     energy_points--;
-  std::cout << "ClapTrap's aura is gaining " << amount << " points\n";
+    std::cout << "ClapTrap's aura is gaining " << amount << " points\n";
+  }
+  else 
+    std::cout << "ClapTrap cannot beRepaired\n";
 }
 
