@@ -1,7 +1,7 @@
 CC = c++
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRCF = main.cpp ClapTrap.cpp ScavTrap.cpp
+SRCF = main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp
 OBJF = $(SRCF:.cpp=.o)
 NAME = ./ClapTrap
 
@@ -11,7 +11,7 @@ $(NAME): $(OBJF)
 	@$(CC) $(FLAGS) $^ -o $@
 	@echo "🚀🚀🚀 Mission complete!"
 
-%.o : %.cpp ClapTrap.hpp ScavTrap.hpp
+%.o : %.cpp ClapTrap.hpp ScavTrap.hpp FragTrap.hpp
 	@$(CC) $(CFLAGS) -c $< -o $@ 
 
 clean:
