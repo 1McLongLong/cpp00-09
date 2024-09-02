@@ -46,6 +46,3 @@ void FragTrap::attack(const std::string& target) {
             << " points of damage!\n";
 }
 
-
-
-
