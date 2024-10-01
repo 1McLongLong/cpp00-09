@@ -16,8 +16,7 @@
 #include <iostream>
 
 
-class Harl 
-{
+class Harl {
   void debug( void );
   void info( void );
   void warning( void );
@@ -26,6 +25,5 @@ class Harl
   public:
   void complain( std::string level );
 };
-
 
 #endif
