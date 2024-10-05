@@ -31,8 +31,5 @@ std::string Animal::getType() const {
   return this->type;
 }
 
-// void Animal::makeSound() const {
-//   std::cout << "An animal of type Zyamli doesn't make sounds\n";
-// }
 
 
