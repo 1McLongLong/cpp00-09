@@ -2,16 +2,17 @@
 #define CURE_HPP
 
 #include <iostream>
+#include "AMateria.hpp"
 
-class Cure {
-  std::string type;
+class Cure : public AMateria {
 public:
   Cure();
   Cure(const Cure &copy);
   Cure &operator=(const Cure &copy);
   ~Cure();
-  
-  Cure *clone();
+ 
+  virtual Cure* clone() const;
+	virtual void use(ICharacter& target); 
 };
 
 
