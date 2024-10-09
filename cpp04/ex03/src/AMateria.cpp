@@ -1,13 +1,11 @@
 #include "../inc/AMateria.hpp"
 
-
-
 AMateria::AMateria() {
   this->type = "default";
   std::cout << "AMateria default constructor is called\n";
 }
 
-AMateria::AMateria(std::string type) : type(type) {
+AMateria::AMateria(std::string const &type) : type(type) {
   std::cout << "AMateria default constructor is called\n";
 }
 
@@ -32,4 +30,8 @@ AMateria::~AMateria() {
 std::string const &AMateria::getType() const {
   return this->type;
 }
+
+void AMateria::use(ICharacter& target) {
+  std::cout << "* AMateria " << target.getName() << " *\n";
+} 
 

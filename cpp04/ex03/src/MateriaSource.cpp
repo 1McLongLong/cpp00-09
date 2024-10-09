@@ -1,7 +1,8 @@
 #include "../inc/MateriaSource.hpp"
 
-
 MateriaSource::MateriaSource() {
+  for (int i = 0; i < 4; i++)
+    slots[i] = nullptr;
   std::cout << "MateriaSource default constructor is called\n";
 }
 
@@ -13,14 +14,33 @@ MateriaSource::MateriaSource(const MateriaSource &copy) {
 MateriaSource &MateriaSource::operator=(const MateriaSource &copy) {
   std::cout << "MateriaSource Copy assignment operator called\n";
   if (this != &copy) {
-    this->type = copy.type;
+  for (int i = 0; i < 4; i++) {
+    if(this->slots[i])
+      this->slots[i] = copy.slots[i]->clone();
+    }
   }
   return *this;
 }
 
 MateriaSource::~MateriaSource() {
   std::cout << "MateriaSource destructor is called\n";
+  for (int i = 0; i < 4; i++)
+  {
+    delete slots[i];
+  }
 }
+
+void MateriaSource::learnMateria(AMateria*) {
+
+}
+
+
+AMateria* MateriaSource::createMateria(std::string const &type) {
+
+}
+
+
+
 
 
 

@@ -1,8 +1,6 @@
 #include "../inc/Cure.hpp"
 
-
-
-Cure::Cure() {
+Cure::Cure() : AMateria("Cure") {
   type = "Cure";
   std::cout << "Cure default constructor is called\n";
 }

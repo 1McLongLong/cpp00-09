@@ -1,6 +1,5 @@
 #include "../inc/Character.hpp"
 
-
 Character::Character() {
   name = "default";
   for (int i = 0; i < 4; i++)
@@ -16,12 +15,20 @@ Character::Character(std::string name) : name(name) {
 
 Character::Character(const Character &copy) {
   std::cout << "Character Copy constructor called\n";
+  // for (int i = 0; i < 4; i++) {
+  //   if(this->slots[i])
+  //     this->slots[i] = copy.slots[i]->clone();
+  // }
   *this = copy;
 }
 
 Character &Character::operator=(const Character &copy) {
   std::cout << "Character Copy assignment operator called\n";
   if (this != &copy) {
+  for (int i = 0; i < 4; i++) {
+    if(this->slots[i])
+      this->slots[i] = copy.slots[i]->clone();
+    }
     this->name = copy.name;
   }
   return *this;
@@ -29,6 +36,10 @@ Character &Character::operator=(const Character &copy) {
 
 Character::~Character() {
   std::cout << "Character destructor is called\n";
+  for (int i = 0; i < 4; i++)
+  {
+    delete slots[i];
+  }
 }
 
 std::string const &Character::getName() const {
@@ -50,15 +61,10 @@ void Character::unequip(int idx) {
 }
 
 void Character::use(int idx, ICharacter& target) {
-  if ((idx >= 0 && idx <= 3) || slots[idx] == nullptr)
+  if ((idx < 0 && idx > 3) || slots[idx] == nullptr)
     return ;
   slots[idx]->use(target);
 }
-
-// AMateria *Character::getMateria(int i) {
-// }
-
-
 
 
 
