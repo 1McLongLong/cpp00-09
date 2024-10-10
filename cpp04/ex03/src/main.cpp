@@ -1,8 +1,7 @@
-
-
-
-
-
+#include "../inc/Ice.hpp"
+#include "../inc/Cure.hpp"
+#include "../inc/Character.hpp"
+#include "../inc/MateriaSource.hpp"
 
 
 
