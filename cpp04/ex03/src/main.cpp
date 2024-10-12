@@ -1,3 +1,4 @@
+#include "../inc/AMateria.hpp"
 #include "../inc/Ice.hpp"
 #include "../inc/Cure.hpp"
 #include "../inc/Character.hpp"

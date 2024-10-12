@@ -1,18 +1,17 @@
 #include "../inc/Ice.hpp"
 
-
 Ice::Ice() {
   type = "Ice";
-  std::cout << "Ice default constructor is called\n";
+  // std::cout << "Ice default constructor is called\n";
 }
 
 Ice::Ice(const Ice &copy) {
-  std::cout << "Ice Copy constructor called\n";
+  // std::cout << "Ice Copy constructor called\n";
   *this = copy;
 }
 
 Ice &Ice::operator=(const Ice &copy) {
-  std::cout << "Ice Copy assignment operator called\n";
+  // std::cout << "Ice Copy assignment operator called\n";
   if (this != &copy) {
     this->type = copy.type;
   }
@@ -20,7 +19,7 @@ Ice &Ice::operator=(const Ice &copy) {
 }
 
 Ice::~Ice() {
-  std::cout << "Ice destructor is called\n";
+  // std::cout << "Ice destructor is called\n";
 }
 
 

@@ -2,16 +2,16 @@
 
 Cure::Cure() : AMateria("Cure") {
   type = "Cure";
-  std::cout << "Cure default constructor is called\n";
+  // std::cout << "Cure default constructor is called\n";
 }
 
 Cure::Cure(const Cure &copy) {
-  std::cout << "Cure Copy constructor called\n";
+  // std::cout << "Cure Copy constructor called\n";
   *this = copy;
 }
 
 Cure &Cure::operator=(const Cure &copy) {
-  std::cout << "Cure Copy assignment operator called\n";
+  // std::cout << "Cure Copy assignment operator called\n";
   if (this != &copy) {
     this->type = copy.type;
   }
@@ -19,9 +19,8 @@ Cure &Cure::operator=(const Cure &copy) {
 }
 
 Cure::~Cure() {
-  std::cout << "Cure destructor is called\n";
+  // std::cout << "Cure destructor is called\n";
 }
-
 
 Cure *Cure::clone() const {
   return new Cure();

@@ -4,6 +4,8 @@
 #include <iostream>
 #include "AMateria.hpp"
 
+class AMateria;
+
 class Character : public ICharacter {
   AMateria	*slots[4];
   std::string name;
