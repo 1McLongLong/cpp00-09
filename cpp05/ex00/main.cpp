@@ -3,7 +3,7 @@
 
 int main() {
   try {
-    Bureaucrat	person("Kel", 160);
+    Bureaucrat	person("Kel", 10);
     std::cout << person << std::endl;
   }
   catch (std::exception &e) {
