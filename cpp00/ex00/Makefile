@@ -1,18 +1,30 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: touahman <touahman@student.1337.ma>        +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2024/09/16 08:35:36 by touahman          #+#    #+#              #
+#    Updated: 2024/09/16 08:48:15 by touahman         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 CC = c++ 
-CFLAGS = -Wall -Wextra -Werror -std=c++98
+FLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRCF = megaphone.cpp
-OBJF = $(SRCF:.c=.o)
+OBJF = $(SRCF:.cpp=.o)
 NAME = ./megaphone
 
 all : $(NAME)
 
 $(NAME): $(OBJF)
-	@$(CC) $(CFLAGS) $^ -o $@
+	@$(CC) $(FLAGS) $^ -o $@
 	@echo "🚀 Mission is complete!"
 
-%.o : %.c
-	@$(CC) $(CFLAGS) -c $< -o $@ 
+%.o : %.cpp
+	@$(CC) $(FLAGS) -c $< -o $@ 
 
 clean:
 	@rm -f $(OBJF)

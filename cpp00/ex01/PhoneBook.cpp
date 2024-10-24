@@ -1,10 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   PhoneBook.cpp                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: touahman <touahman@student.1337.ma>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/09/16 08:53:09 by touahman          #+#    #+#             */
+/*   Updated: 2024/09/16 08:55:06 by touahman         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "PhoneBook.hpp"
 #include "Contact.hpp"
 
 int PhoneBook::n_contacts = 0;
 
-void PhoneBook::set_contact()
-{
+void PhoneBook::set_contact() {
   max = 0;
   if (n_contacts >= 8)
   {
@@ -22,8 +33,7 @@ void PhoneBook::set_contact()
   n_contacts++;
 }
 
-void PhoneBook::get_list()
-{
+void PhoneBook::get_list() {
   if (n_contacts == 0)
     std::cout << "There are no available users, but you can (ADD) one!\n";
   else
@@ -51,8 +61,7 @@ void PhoneBook::get_list()
   }
 }
 
-void PhoneBook::display_list()
-{
+void PhoneBook::display_list() {
   std::cout << "|     Index|First Name| Last Name|  Nickname|\n";
   int i = 0;
   int k;
@@ -60,8 +69,7 @@ void PhoneBook::display_list()
     k = 8;
   else 
     k = n_contacts;
-  while (i < k)
-  {
+  while (i < k) {
     std::cout << '|';
     std::cout << std::setw(10);
     std::cout << contacts[i].get_index() << '|';
@@ -71,7 +79,7 @@ void PhoneBook::display_list()
       str.insert(9, ".");
       std::cout << str << '|';
     }
-    else { 
+    else {
       std::cout << std::setw(10);
       std::cout << contacts[i].get_first_name() << '|';
     }
@@ -81,7 +89,7 @@ void PhoneBook::display_list()
       str.insert(9, ".");
       std::cout << str << '|';
     }
-    else { 
+    else {
       std::cout << std::setw(10);
       std::cout << contacts[i].get_last_name() << '|';
     }
@@ -91,7 +99,7 @@ void PhoneBook::display_list()
       str.insert(9, ".");
       std::cout << str << "|\n";
     }
-    else { 
+    else {
       std::cout << std::setw(10);
       std::cout << contacts[i].get_nick_name() << "|\n";
     }
