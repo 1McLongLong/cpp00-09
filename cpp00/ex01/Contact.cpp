@@ -83,7 +83,7 @@ void Contact::set_darkest_secret() {
   while (m_darkest_secret.empty())
   {
     std::cout << "Enter your darkest secret: ";
-    std::getline(std::cin >> std::ws, m_darkest_secret); 
+    std::getline(std::cin, m_darkest_secret); 
     if (only_space(m_darkest_secret))
       m_darkest_secret.clear();
     if (std::cin.eof())
@@ -98,7 +98,7 @@ void Contact::set_phone_number() {
   while (m_phone_number.empty())
   {
     std::cout << "Enter your phone number: ";
-    std::getline(std::cin >> std::ws, m_phone_number);
+    std::getline(std::cin, m_phone_number);
     if (only_space(m_phone_number) || only_numbers(m_phone_number))
       m_phone_number.clear();
     if (std::cin.eof())
