@@ -12,7 +12,7 @@
 
 #include "Contact.hpp"
 
-int only_space(std::string &string) {
+int Contact::only_space(std::string &string) {
   int i = 0;
   while (string[i])
   {
@@ -23,7 +23,7 @@ int only_space(std::string &string) {
   return 1;
 }
 
-int only_numbers(std::string &string) {
+int Contact::only_numbers(std::string &string) {
   int i = 0;
   while (string[i])
   {
@@ -34,7 +34,18 @@ int only_numbers(std::string &string) {
   return 0;
 }
 
-void Contact::set_first_name() {
+void Contact::replace_spaces(std::string &str) {
+  std::string result;
+  for (int i = 0; i < str.size(); i++) {
+    if (str[i] == '\t')
+      result += "    ";
+    else 
+      result += str[i];
+  }
+  str = result;
+}
+
+  void Contact::set_first_name() {
   while (m_first_name.empty())
   {
     std::cout << "Enter your first name: ";
@@ -47,6 +58,7 @@ void Contact::set_first_name() {
       exit(1);
     }
   }
+  replace_spaces(m_first_name);
 }
 
 void Contact::set_last_name() {
@@ -62,6 +74,7 @@ void Contact::set_last_name() {
       exit(1);
     }
   }
+  replace_spaces(m_last_name);
 }
 
 void Contact::set_nick_name() {
@@ -77,6 +90,7 @@ void Contact::set_nick_name() {
       exit(1);
     }
   }
+  replace_spaces(m_nick_name);
 }
 
 void Contact::set_darkest_secret() {
@@ -92,6 +106,7 @@ void Contact::set_darkest_secret() {
       exit(1);
     }
   }
+  replace_spaces(m_darkest_secret);
 }
 
 void Contact::set_phone_number() {

@@ -24,6 +24,10 @@ class Contact {
   std::string m_darkest_secret;
   int         m_contact_index;
 public:
+  void        replace_spaces(std::string &str);
+  int         only_space(std::string &string);
+  int         only_numbers(std::string &string);
+  
   void        set_first_name();
   void        set_last_name();
   void        set_nick_name();

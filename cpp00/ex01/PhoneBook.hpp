@@ -25,6 +25,7 @@ class PhoneBook {
   static int  n_contacts;
   int         max;
 public:
+  void        trimmed_list(const std::string &str);
   void        set_contact();
   void        get_list();
   void        display_list();

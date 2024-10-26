@@ -61,6 +61,16 @@ void PhoneBook::get_list() {
   }
 }
 
+void PhoneBook::trimmed_list(const std::string& str) {
+  if (str.length() > 10) {
+    std::cout << str.substr(0, 9) << ".|";
+  } 
+  else {
+    std::cout << std::setw(10) << str << '|';
+  }
+}
+
+
 void PhoneBook::display_list() {
   std::cout << "|     Index|First Name| Last Name|  Nickname|\n";
   int i = 0;
@@ -73,36 +83,10 @@ void PhoneBook::display_list() {
     std::cout << '|';
     std::cout << std::setw(10);
     std::cout << contacts[i].get_index() << '|';
-    if (contacts[i].get_first_name().length() > 10) {
-      std::string str = contacts[i].get_first_name();
-      str = str.substr(0, 9);
-      str.insert(9, ".");
-      std::cout << str << '|';
-    }
-    else {
-      std::cout << std::setw(10);
-      std::cout << contacts[i].get_first_name() << '|';
-    }
-    if (contacts[i].get_last_name().length() > 10) {
-      std::string str = contacts[i].get_last_name();
-      str = str.substr(0, 9);
-      str.insert(9, ".");
-      std::cout << str << '|';
-    }
-    else {
-      std::cout << std::setw(10);
-      std::cout << contacts[i].get_last_name() << '|';
-    }
-    if (contacts[i].get_nick_name().length() > 10) {
-      std::string str = contacts[i].get_nick_name();
-      str = str.substr(0, 9);
-      str.insert(9, ".");
-      std::cout << str << "|\n";
-    }
-    else {
-      std::cout << std::setw(10);
-      std::cout << contacts[i].get_nick_name() << "|\n";
-    }
+    trimmed_list(contacts[i].get_first_name());
+    trimmed_list(contacts[i].get_last_name());
+    trimmed_list(contacts[i].get_nick_name());
+    std::cout << '\n';
     i++;
   }
 }
