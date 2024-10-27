@@ -12,22 +12,18 @@
 
 #include "HumanB.hpp"
 
-HumanB::HumanB(std::string name) : m_name(name), m_weapon(NULL)
-{
+HumanB::HumanB(std::string name) : m_name(name), m_weapon(NULL) {
   std::cout << m_name << " created with no weapon\n";
 }
 
-void HumanB::setWeapon(Weapon &weapon)
-{
+void HumanB::setWeapon(Weapon &weapon) {
   m_weapon = &weapon;
 }
 
-void HumanB::attack()
-{
+void HumanB::attack() {
   std::cout << m_name << " attacks with their " << m_weapon->getType() << '\n';
 }
 
-HumanB::~HumanB(void)
-{
+HumanB::~HumanB(void) {
   std::cout << "HumanB " << m_name << " is destroyed\n";
 }

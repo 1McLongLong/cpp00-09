@@ -18,7 +18,7 @@
 #include <string>
 
 
-class Sed  {
+class Sed {
   std::string filename;
   std::string str1;
   std::string str2;

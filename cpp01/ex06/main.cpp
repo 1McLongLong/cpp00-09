@@ -13,10 +13,8 @@
 #include "Harl.hpp"
 
 
-int main(int argc, char **argv)
-{
-  if (argc != 2)
-  {
+int main(int argc, char **argv) {
+  if (argc != 2) {
     std::cout  << "Use with: ./HarlFilter (DEBUG | INFO | WARNING | ERROR)\n";
     return 1;
   }

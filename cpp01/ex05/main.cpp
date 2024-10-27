@@ -13,8 +13,7 @@
 #include "Harl.hpp"
 
 
-int main()
-{
+int main() {
   Harl h;
 
   h.complain("DEBUG");

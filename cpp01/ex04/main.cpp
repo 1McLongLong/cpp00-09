@@ -15,8 +15,7 @@
 
 int main(int argc, char **argv)
 {
-  if (argc != 4)
-  {
+  if (argc != 4) {
     std::cout << "Wrong input\n";
     return 1;
   }
@@ -25,8 +24,7 @@ int main(int argc, char **argv)
   std::string str2 = argv[3];
 
   Sed replace(file, str1, str2);
-  if (replace.sed_string())
-  {
+  if (replace.sed_string()) {
     std::cout << "Could not open the file!\n";
     return 1;
   }

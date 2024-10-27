@@ -15,16 +15,13 @@
 
 HumanA::HumanA(std::string name, Weapon &weapon) 
   : m_name(name), m_weapon(weapon)
-{
-}
+{}
 
-void HumanA::attack()
-{
+void HumanA::attack() {
   std::cout << m_name << " attacks with their " << m_weapon.getType() << '\n';
 }
 
 
-HumanA::~HumanA(void)
-{
+HumanA::~HumanA(void) {
   std::cout << "HumanA " << m_name << " is destroyed\n";
 }

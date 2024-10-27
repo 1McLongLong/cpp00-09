@@ -17,9 +17,8 @@
 #include <iostream>
 #include "Weapon.hpp"
 
-class HumanA
-{
-  Weapon &m_weapon;
+class HumanA {
+  Weapon      &m_weapon;
   std::string m_name;
   
   public:
