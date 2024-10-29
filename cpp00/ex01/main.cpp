@@ -23,6 +23,7 @@ void get_contact(PhoneBook& phonebook) {
 int main(int argc, char **argv) {
   PhoneBook phonebook;
   std::string command;
+  phonebook.init();
   while (1) {
     std::cout << "Enter a Command (ADD | SEARCH | EXIT): ";
     std::getline(std::cin,command);

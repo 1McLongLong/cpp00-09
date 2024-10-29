@@ -13,10 +13,17 @@
 #include "PhoneBook.hpp"
 #include "Contact.hpp"
 
-int PhoneBook::n_contacts = 0;
+// int PhoneBook::n_contacts = 0;
+
+void PhoneBook::init() {
+  max = 0;
+  n_contacts = 0;
+  total_contact = 0;
+}
+
 
 void PhoneBook::set_contact() {
-  max = 0;
+  // max = 0;
   if (n_contacts >= 8)
   {
     n_contacts = 0;
@@ -28,13 +35,25 @@ void PhoneBook::set_contact() {
   contacts[n_contacts].set_phone_number();
   contacts[n_contacts].set_darkest_secret();
   contacts[n_contacts].set_contact_index(n_contacts + 1);
-
   std::cout << "New contact is added to the phonebook [" << contacts[n_contacts].get_index() << "/8]\n";
-  n_contacts++;
+
+  n_contacts = (n_contacts + 1) % 8;
+
+  // Track the total contacts added (but cap it at 8).
+  if (total_contact < 8) {
+    total_contact++;
+  }
+
+  // Set max to 1 if we wrap around.
+  if (n_contacts == 0) {
+    max = 1;
+  }
+  // n_contacts++;
 }
 
 void PhoneBook::get_list() {
-  if (n_contacts == 0)
+  // if (n_contacts == 0)
+  if (total_contact == 0)
     std::cout << "There are no available users, but you can (ADD) one!\n";
   else
   {
@@ -50,7 +69,8 @@ void PhoneBook::get_list() {
         exit(1);
       }
       int i = atoi(str.c_str());
-      if (i > 0 && i < n_contacts + 1) {
+      // if (i > 0 && i < n_contacts + 1) {
+      if (i > 0 && i < total_contact + 1) {
         contacts[i - 1].get_contact();
         break;
       }

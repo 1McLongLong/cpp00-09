@@ -45,7 +45,9 @@ void Contact::replace_spaces(std::string &str) {
   str = result;
 }
 
-  void Contact::set_first_name() {
+void Contact::set_first_name() {
+  if (!m_first_name.empty())
+    m_first_name.clear();
   while (m_first_name.empty())
   {
     std::cout << "Enter your first name: ";
@@ -62,6 +64,8 @@ void Contact::replace_spaces(std::string &str) {
 }
 
 void Contact::set_last_name() {
+  if (!m_last_name.empty())
+    m_last_name.clear();
   while (m_last_name.empty())
   {
     std::cout << "Enter your last name: ";
@@ -78,6 +82,8 @@ void Contact::set_last_name() {
 }
 
 void Contact::set_nick_name() {
+  if (!m_nick_name.empty())
+    m_nick_name.clear();
   while (m_nick_name.empty())
   {
     std::cout << "Enter your nick name: ";
@@ -94,6 +100,8 @@ void Contact::set_nick_name() {
 }
 
 void Contact::set_darkest_secret() {
+  if (!m_darkest_secret.empty())
+    m_darkest_secret.clear();
   while (m_darkest_secret.empty())
   {
     std::cout << "Enter your darkest secret: ";
@@ -110,6 +118,8 @@ void Contact::set_darkest_secret() {
 }
 
 void Contact::set_phone_number() {
+  if (!m_phone_number.empty())
+    m_phone_number.clear();
   while (m_phone_number.empty())
   {
     std::cout << "Enter your phone number: ";
