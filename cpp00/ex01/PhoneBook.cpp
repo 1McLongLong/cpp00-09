@@ -55,7 +55,7 @@ void PhoneBook::get_list() {
         std::cout << "\nCioa!\n";
         exit(1);
       }
-      int i = atoi(str.c_str());
+      size_t i = atol(str.c_str());
       if (i > 0 && i < total_contact + 1) {
         contacts[i - 1].get_contact();
         break;
