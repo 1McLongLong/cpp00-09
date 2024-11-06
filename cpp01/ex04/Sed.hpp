@@ -24,7 +24,7 @@ class Sed {
   std::string str2;
   void        replace_string(std::string &str, std::string &str1,std::string &str2);
 
-  public:
+public:
   Sed(std::string &file, std::string &s1, std::string &s2);
   int         sed_string();
 };
