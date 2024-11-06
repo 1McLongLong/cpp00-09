@@ -14,7 +14,7 @@
 #include "Contact.hpp"
 
 
-void PhoneBook::init() {
+PhoneBook::PhoneBook() {
   max = 0;
   n_contacts = 0;
   total_contact = 0;

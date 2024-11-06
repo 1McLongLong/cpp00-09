@@ -21,9 +21,13 @@ void get_contact(PhoneBook& phonebook) {
 }
 
 int main(int argc, char **argv) {
+  if (argc > 1)
+  {
+    std::cout << "Run with [./phonebook]\n";
+    exit(1);
+  }
   PhoneBook phonebook;
   std::string command;
-  phonebook.init();
   while (1) {
     std::cout << "Enter a Command (ADD | SEARCH | EXIT): ";
     std::getline(std::cin,command);
@@ -39,7 +43,7 @@ int main(int argc, char **argv) {
     }
     else if (command == "EXIT") {
       std::cout << "I'm afraid you have to LEAVE!\n";
-      break;
+      exit(1);
     }
   }
 }
