@@ -22,6 +22,10 @@ int main(int argc, char **argv)
   std::string file = argv[1];
   std::string str1 = argv[2];
   std::string str2 = argv[3];
+  if (str1.empty()) {
+    std::cout << "Please provide a string to replace!\n";
+    exit(1);
+  }
 
   Sed replace(file, str1, str2);
   if (replace.sed_string()) {
