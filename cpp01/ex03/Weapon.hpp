@@ -22,7 +22,7 @@ class Weapon {
   public:
   Weapon(std::string type);
   void                setType(std::string newType);
-  const std::string&  getType();
+  const std::string&  getType() const;
 };
 
 #endif
