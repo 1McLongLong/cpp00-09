@@ -40,7 +40,7 @@ int Sed::sed_string() {
 }
 
 void Sed::replace_string(std::string &str, std::string &str1,std::string &str2) {
-  size_t pos = str.find(str1); 
+  int pos = str.find(str1);
   while (pos != std::string::npos) { 
     str.erase(pos, str1.size());
     str.insert(pos, str2);
