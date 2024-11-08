@@ -12,22 +12,21 @@
 
 #include "Harl.hpp"
 
-int check_comment(std::string level) {
+int Harl::check_comment(std::string level) {
   std::string levels[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
   int i = 0;
-  while (i < 4)
-  {
+  while (i < 4) {
     if (levels[i] == level)
     {
       return i;
-      break ;
+      break;
     }
     i++;
   }
   return 4;
 }
 
-void Harl::complain( std::string level ) {
+void Harl::complain(std::string level) {
   void (Harl::*comments[4])(void) = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
   
   int i = check_comment(level);

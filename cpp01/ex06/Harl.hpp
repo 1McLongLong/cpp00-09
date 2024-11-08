@@ -16,13 +16,14 @@
 #include <iostream>
 
 class Harl {
-  void debug( void );
-  void info( void );
-  void warning( void );
-  void error( void );
+  void  debug(void);
+  void  info(void);
+  void  warning(void);
+  void  error(void);
+  int   check_comment(std::string level);
   
-  public:
-  void complain( std::string level );
+public:
+  void  complain( std::string level );
 };
 
 #endif
