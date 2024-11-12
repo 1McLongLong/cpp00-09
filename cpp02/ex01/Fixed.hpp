@@ -10,8 +10,8 @@ class Fixed {
 
   public:
   Fixed();
-  Fixed(const int nb);
-  Fixed(const float nb);
+  Fixed(const int intValue);
+  Fixed(const float floatValue);
   Fixed(const Fixed &copy);
   Fixed &operator=(const Fixed &other);
   ~Fixed();
