@@ -5,16 +5,17 @@
 
 
 class Fixed {
-  int nbr;
-  static const int bits;
+  int               nbr;
+  static const int  bits;
 
-  public:
+public:
   Fixed();
   Fixed(const Fixed &copy);
   Fixed &operator=(const Fixed &other);
   ~Fixed();
-  int getRawBits( void ) const;
-  void setRawBits( int const raw );
+
+  int   getRawBits(void) const;
+  void  setRawBits(int const raw);
 };
 
 
