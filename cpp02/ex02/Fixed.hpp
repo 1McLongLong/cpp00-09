@@ -21,27 +21,27 @@ public:
   int                 toInt(void) const;
   float               toFloat(void) const;
 
-  bool                operator>(Fixed const &other) const;
-  bool                operator<(Fixed const &other) const;
-  bool                operator>=(Fixed const &other) const;
-  bool                operator<=(Fixed const &other) const;
-  bool                operator==(Fixed const &other) const;
-  bool                operator!=(Fixed const &other) const;
-  Fixed               operator+(Fixed const &other) const;
-  Fixed               operator-(Fixed const &other) const;
-  Fixed               operator*(Fixed const &other) const;
-  Fixed               operator/(Fixed const &other) const;
-  Fixed               operator++(int); // prefix
+  bool                operator>(const Fixed &other) const;
+  bool                operator<(const Fixed &other) const;
+  bool                operator>=(const Fixed &other) const;
+  bool                operator<=(const Fixed &other) const;
+  bool                operator==(const Fixed &other) const;
+  bool                operator!=(const Fixed &other) const;
+  Fixed               operator+(const Fixed &other) const;
+  Fixed               operator-(const Fixed &other) const;
+  Fixed               operator*(const Fixed &other) const;
+  Fixed               operator/(const Fixed &other) const;
+  Fixed               operator++(int); // postfix
   Fixed&              operator++();
-  Fixed               operator--(int); // prefix
+  Fixed               operator--(int); // postfix
   Fixed&              operator--();
 
   static Fixed&       min(Fixed &point1, Fixed &point2);
   static Fixed&       max(Fixed &point1, Fixed &point2);
-  static const Fixed& min(Fixed const &point1, Fixed const &point2);
-  static const Fixed& max(Fixed const &point1, Fixed const &point2);
+  static Fixed&       min(const Fixed &point1, const Fixed &point2);
+  static Fixed&       max(const Fixed &point1, const Fixed &point2);
 };
 
-std::ostream          &operator<<(std::ostream &o, Fixed const &other);
+std::ostream          &operator<<(std::ostream &out, const Fixed &other);
 
 #endif
