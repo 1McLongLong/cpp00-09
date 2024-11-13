@@ -8,16 +8,15 @@ Fixed::Fixed()
   std::cout << "Default constructor called\n";
 }
 
-Fixed::Fixed(const int int_value)
+Fixed::Fixed(const int intValue) 
 {
-  nbr = int_value * (1 << bits);
+  nbr = intValue << bits;
   std::cout << "Int constructor called\n";
 }
 
-Fixed::Fixed(const float float_value)
+Fixed::Fixed(const float floatValue) 
 {
-  int scale = 1 << bits;
-	nbr = roundf(float_value * scale);
+	nbr = roundf(floatValue * (1 << bits));
   std::cout << "Float constructor called\n";
 }
 
@@ -27,7 +26,7 @@ Fixed::Fixed(const Fixed &copy)
   *this = copy;
 }
 
-Fixed &Fixed::operator=(const Fixed &other)
+Fixed &Fixed::operator=(const Fixed &other)// a = b = c = d;
 {
   std::cout << "Copy assignment operator called\n";
   if(this != &other)
@@ -165,7 +164,7 @@ Fixed& Fixed::min(const Fixed &point1, const Fixed &point2)
 {
   if (point1 < point2)
     return ((Fixed& )point1);
-  else 
+  else
     return ((Fixed& )point2);
 }
 
@@ -184,6 +183,3 @@ Fixed& Fixed::max(const Fixed &point1, const Fixed &point2)
   else 
     return ((Fixed& )point2);
 }
-
-
-
