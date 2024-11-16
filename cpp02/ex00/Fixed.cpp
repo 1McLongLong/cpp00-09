@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Fixed.cpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: touahman <touahman@student.1337.ma>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/11/14 08:31:28 by touahman          #+#    #+#             */
+/*   Updated: 2024/11/14 08:31:30 by touahman         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Fixed.hpp"
 
 const int Fixed::bits = 8;
@@ -6,7 +18,6 @@ Fixed::Fixed() : nbr(0) {
   std::cout << "Default constructor called\n";
 }
 
-// we pass by reference not value because value needs to be copied using copy constructor which we are working on;  
 Fixed::Fixed(const Fixed &copy) {
   std::cout << "Copy constructor called\n";
   this->nbr = copy.getRawBits();
