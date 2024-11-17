@@ -11,7 +11,7 @@ int main() {
   claptrap.takeDamage(12);
   claptrap.attack("Moichou");
 
-  std::cout << "\n";
+  std::cout << '\n';
 
 
   ScavTrap scavtrap("Trap_Scav");
@@ -23,7 +23,7 @@ int main() {
   scavtrap.attack("Iassil");
   scavtrap.guardGate();
 
-  std::cout << std::endl;
+  std::cout << '\n';
 
   return 0;
 }

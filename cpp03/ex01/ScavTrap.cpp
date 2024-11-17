@@ -1,7 +1,7 @@
 #include "ScavTrap.hpp"
 #include "ClapTrap.hpp"
 
-ScavTrap::ScavTrap() : ClapTrap("") {
+ScavTrap::ScavTrap() : ClapTrap("default") {
   std::cout << "ScavTrap default constructor is IN\n";
   this->hit_points = 100;
   this->energy_points = 50;

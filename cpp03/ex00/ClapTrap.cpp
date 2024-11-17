@@ -1,5 +1,8 @@
 #include "ClapTrap.hpp"
 
+ClapTrap::ClapTrap() : name("default"), hit_points(10), energy_points(10), attack_damage(0) 
+{}
+
 ClapTrap::ClapTrap(std::string name) {
   this->name = name;
   this->hit_points = 10;
@@ -30,12 +33,10 @@ ClapTrap::~ClapTrap() {
   std::cout << "ClapTrap is OUT\n";
 }
 
-void ClapTrap::attack(const std::string& target)
-{
+void ClapTrap::attack(const std::string& target) {
   if (hit_points <= 0 || energy_points <= 0)
     std::cout << "ClapTrap can't attack anymore unfortunately\n";
-  else
-  {
+  else {
     energy_points--;
     std::cout << "ClapTrap " << name << " attacks " 
             << target << ", causing " << attack_damage 
@@ -43,21 +44,17 @@ void ClapTrap::attack(const std::string& target)
   }
 }
 
-void ClapTrap::takeDamage(unsigned int amount)
-{
-  if (hit_points > 0)
-  {
+void ClapTrap::takeDamage(unsigned int amount) {
+  if (hit_points > 0) {
     hit_points -= amount;
-    std::cout << "ClapTrap is edging " << amount << " points out of him\n";
+    std::cout << "ClapTrap is taking " << amount << " points out of him\n";
   }
   else 
     std::cout << "ClapTrap is out of hit_points\n";
 }
 
-void ClapTrap::beRepaired(unsigned int amount)
-{
-  if (energy_points > 0 && hit_points > 0)
-  {
+void ClapTrap::beRepaired(unsigned int amount) {
+  if (energy_points > 0 && hit_points > 0) {
     hit_points += amount;
     energy_points--;
     std::cout << "ClapTrap's aura is gaining " << amount << " points\n";
