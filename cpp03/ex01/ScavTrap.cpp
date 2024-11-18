@@ -10,7 +10,6 @@ ScavTrap::ScavTrap() : ClapTrap("default") {
 
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name) {
   std::cout << "ScavTrap is IN\n";
-  this->name = name;
   this->hit_points = 100;
   this->energy_points = 50;
   this->attack_damage = 20;

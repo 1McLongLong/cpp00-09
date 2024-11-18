@@ -3,67 +3,40 @@
 #include "FragTrap.hpp"
 
 int main() {
-  ClapTrap claptrap("Clap-9000");
+  ClapTrap claptrap("ClapMaster");
 
-  claptrap.attack("Moulinex");
+  claptrap.attack("Toaster");
   claptrap.takeDamage(3);
   claptrap.beRepaired(5);
-  claptrap.attack("Moulinex Beta");
+  claptrap.attack("Blender");
   claptrap.takeDamage(12);
-  claptrap.attack("Moulinex 2.0");
+  claptrap.attack("Microwave");
 
-  std::cout << std::endl;
+  std::cout << '\n';
 
-  ScavTrap scavtrap("Scav-9000");
+  ScavTrap scavtrap("ScavengerBot");
 
-  scavtrap.attack("Moulinex");
+  scavtrap.attack("Toaster Pro");
   scavtrap.takeDamage(30);
   scavtrap.beRepaired(10);
-  scavtrap.attack("Moulinex");
+  scavtrap.attack("Blender Deluxe");
   scavtrap.takeDamage(50);
-  scavtrap.attack("Moulinex 2.0");
+  scavtrap.attack("Microwave Supreme");
   scavtrap.guardGate();
 
-  std::cout << std::endl;
+  std::cout << '\n';
 
-  FragTrap fragtrap("Frag-9000");
+  FragTrap fragtrap("Fraginator");
 
-  fragtrap.attack("Moulinex");
+  fragtrap.attack("OvenBot");
   fragtrap.takeDamage(20);
   fragtrap.beRepaired(15);
-  fragtrap.attack("Moulinox Beta");
+  fragtrap.attack("DishwasherX");
   fragtrap.takeDamage(40);
-  fragtrap.attack("Moulinex 2.0");
+  fragtrap.attack("RefrigeratorX");
   fragtrap.highFiveGuys();
-  std::cout << std::endl;
+  std::cout << '\n';
 
   return 0;
 }
-
-/* int main() {
-  ClapTrap claptrap("Trap_Clap");
-
-  claptrap.attack("Zyamli");
-  claptrap.takeDamage(3);
-  claptrap.beRepaired(5);
-  claptrap.attack("Mmouhiid");
-  claptrap.takeDamage(12);
-  claptrap.attack("Moichou");
-
-  std::cout << "\n";
-
-
-  ScavTrap scavtrap("Trap_Scav");
-
-  scavtrap.takeDamage(30);
-  scavtrap.beRepaired(10);
-  scavtrap.attack("Mohilali");
-  scavtrap.takeDamage(50);
-  scavtrap.attack("Iassil");
-  scavtrap.guardGate();
-
-  std::cout << std::endl;
-
-  return 0;
-} */
 
