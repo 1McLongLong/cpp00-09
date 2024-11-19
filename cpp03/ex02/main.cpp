@@ -34,7 +34,7 @@ int main() {
   fragtrap.attack("DishwasherX");
   fragtrap.takeDamage(40);
   fragtrap.attack("RefrigeratorX");
-  fragtrap.highFiveGuys();
+  fragtrap.highFivesGuys();
   std::cout << '\n';
 
   return 0;

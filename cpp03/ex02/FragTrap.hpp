@@ -11,7 +11,7 @@ public:
   FragTrap(const FragTrap &copy);
   FragTrap &operator=(const FragTrap &copy);
   ~FragTrap();
-  void highFiveGuys(void);
+  void highFivesGuys(void);
 };
 
 
