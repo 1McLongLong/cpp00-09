@@ -8,11 +8,13 @@ int main()
 	const Animal* i = new Cat();
 
 	std::cout << "\n";
-	std::cout << j->getType() << "\n";
+	
+  std::cout << j->getType() << "\n";
 	j->makeSound();
 	std::cout << i->getType() << "\n";
 	i->makeSound();
-	std::cout << "\n";
+	
+  std::cout << "\n";
 
 	delete j;
 	delete i;

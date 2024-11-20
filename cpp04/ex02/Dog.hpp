@@ -15,5 +15,4 @@ public:
   void makeSound() const;
 };
 
-
 #endif

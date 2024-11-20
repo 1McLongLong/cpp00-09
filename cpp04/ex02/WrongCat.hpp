@@ -3,7 +3,6 @@
 
 #include "WrongAnimal.hpp"
 
-
 class WrongCat : public WrongAnimal {
   public:
     WrongCat();
@@ -14,7 +13,4 @@ class WrongCat : public WrongAnimal {
     void makeSound() const;
 };
 
-
 #endif
-
-
