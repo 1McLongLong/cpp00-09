@@ -1,9 +1,7 @@
 #ifndef WRONGANIMAL_HPP
 #define WRONGANIMAL_HPP
 
-
 #include <iostream>
-
 
 class WrongAnimal {
   protected:
@@ -13,13 +11,10 @@ class WrongAnimal {
     WrongAnimal(std::string type);
     WrongAnimal(const WrongAnimal &copy);
     WrongAnimal &operator=(const WrongAnimal &copy);
-    virtual ~WrongAnimal();
+    ~WrongAnimal();
+
     std::string getType() const;
     void makeSound() const;
 };
-
-
-
-
 
 #endif 

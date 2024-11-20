@@ -1,7 +1,7 @@
 #include "Animal.hpp"
 
 
-Animal::Animal() : type("Zyamli") {
+Animal::Animal() : type("default") {
   std::cout << "Animal default constructor is called\n";
 }
 
@@ -32,7 +32,6 @@ std::string Animal::getType() const {
 }
 
 void Animal::makeSound() const {
-  std::cout << "An animal of type Zyamli doesn't make sounds\n";
+  std::cout << "A default Animal doesn't make sounds\n";
 }
-
 
