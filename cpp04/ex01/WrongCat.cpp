@@ -1,10 +1,11 @@
 #include "WrongCat.hpp"
 
-WrongCat::WrongCat() : WrongAnimal("WrongCat") {
+WrongCat::WrongCat() : WrongAnimal("WrongDefault") {
+  type = "WrongCat";
   std::cout << "WrongCat default constructor is called\n";
 }
 
-WrongCat::WrongCat(const WrongCat &copy) {
+WrongCat::WrongCat(const WrongCat &copy) : WrongAnimal(copy) {
   std::cout << "WrongCat copy constructor constructor is called\n";
   *this = copy;
 }
