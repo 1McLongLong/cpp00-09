@@ -23,5 +23,3 @@ fclean: clean
 	@echo "BYE BYE CPP👋"
 
 re: fclean all
-
-.PHONY : all clean fclean re

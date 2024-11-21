@@ -12,7 +12,7 @@ public:
   ~Cure();
  
   Cure* clone() const;
-	void use(ICharacter& target); 
+	void  use(ICharacter& target); 
 };
 
 

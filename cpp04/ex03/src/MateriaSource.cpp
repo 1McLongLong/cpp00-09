@@ -2,7 +2,7 @@
 
 MateriaSource::MateriaSource() {
   for (int i = 0; i < 4; i++)
-    slots[i] = nullptr;
+    slots[i] = NULL;
   // std::cout << "MateriaSource default constructor is called\n";
 }
 
@@ -32,7 +32,7 @@ MateriaSource::~MateriaSource() {
 
 void MateriaSource::learnMateria(AMateria *m) {
   for (int i = 0; i < 4; i++) {
-    if (slots[i] == nullptr) {
+    if (slots[i] == NULL) {
       slots[i] = m;
       return ;
     }
@@ -42,10 +42,10 @@ void MateriaSource::learnMateria(AMateria *m) {
 
 AMateria *MateriaSource::createMateria(std::string const &type) {
   for (int i = 0; i < 4; i++) {
-    if (slots[i] != nullptr && slots[i]->getType() == type)
+    if (slots[i] != NULL && slots[i]->getType() == type)
       return slots[i]->clone();
   }
-  return nullptr;
+  return NULL;
 }
 
 

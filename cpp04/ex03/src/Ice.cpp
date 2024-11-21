@@ -1,11 +1,11 @@
 #include "../inc/Ice.hpp"
 
-Ice::Ice() {
-  type = "Ice";
+Ice::Ice() : AMateria("default") {
+  type = "ice";
   // std::cout << "Ice default constructor is called\n";
 }
 
-Ice::Ice(const Ice &copy) {
+Ice::Ice(const Ice &copy) : AMateria(copy) {
   // std::cout << "Ice Copy constructor called\n";
   *this = copy;
 }
