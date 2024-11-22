@@ -1,6 +1,6 @@
 #include "Cat.hpp"
 
-Cat::Cat() : Animal("default") {
+Cat::Cat() {
   type = "Cat";
   std::cout << "Cat default constructor is called\n";
 }
@@ -25,4 +25,3 @@ Cat::~Cat() {
 void Cat::makeSound() const {
   std::cout << "Meow! Meow!\n";
 }
-

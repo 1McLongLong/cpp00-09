@@ -52,7 +52,7 @@ std::string const &Character::getName() const {
 void Character::equip(AMateria* m) {
   for (int i = 0; i < 4; i++) {
     if (this->slots[i] == NULL) {
-      slots[i] = m;
+      slots[i] = m; // check if slots == m (avoid double free)
       // std::cout << this->name << " equips " << m->getType() << " in " << i << std::endl;
       break;
     }

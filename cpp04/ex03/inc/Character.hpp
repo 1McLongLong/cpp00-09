@@ -5,6 +5,7 @@
 
 class Character : public ICharacter {
   AMateria	*slots[4];
+  // AMateria	*tmp[4];
   std::string name;
 public:
   Character();
