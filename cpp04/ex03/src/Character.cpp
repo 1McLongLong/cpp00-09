@@ -1,12 +1,12 @@
 #include "../inc/Character.hpp"
 
-Character::Character() : name("default") {
+Character::Character() : name("default"), materiaListHead(NULL)  {
   for (int i = 0; i < 4; i++)
     slots[i] = NULL;
   // std::cout << "Character default constructor is called\n";
 }
 
-Character::Character(std::string name) : name(name) {
+Character::Character(std::string name) : name(name), materiaListHead(NULL) {
   for (int i = 0; i < 4; i++)
     slots[i] = NULL;
   // std::cout << "Character default constructor is called\n";
@@ -39,10 +39,7 @@ Character &Character::operator=(const Character &copy) {
 
 Character::~Character() {
   // std::cout << "Character destructor is called\n";
-  for (int i = 0; i < 4; i++)
-  {
-    delete slots[i];
-  }
+  clearMateriaList();
 }
 
 std::string const &Character::getName() const {
@@ -50,13 +47,18 @@ std::string const &Character::getName() const {
 }
 
 void Character::equip(AMateria* m) {
+  if (!m)
+    return ;
   for (int i = 0; i < 4; i++) {
     if (this->slots[i] == NULL) {
-      slots[i] = m; // check if slots == m (avoid double free)
-      // std::cout << this->name << " equips " << m->getType() << " in " << i << std::endl;
-      break;
+      if (slots[i] == m) 
+        return ;
+      slots[i] = m;
+      break ;
     }
   }
+  MateriaNode* newNode = new MateriaNode(m, materiaListHead);
+  materiaListHead = newNode;
 }
 
 void Character::unequip(int idx) {
@@ -65,10 +67,18 @@ void Character::unequip(int idx) {
 }
 
 void Character::use(int idx, ICharacter& target) {
-  if ((idx < 0 && idx > 3) || slots[idx] == NULL)
+  if ((idx < 0 || idx > 3) || slots[idx] == NULL)
     return ;
   this->slots[idx]->use(target);
 }
 
-
-
+void Character::clearMateriaList() {
+  MateriaNode* current = materiaListHead;
+  while (current != NULL) {
+    MateriaNode* temp = current;
+    delete current->materia;
+    current = current->next;
+    delete temp;
+  }
+  materiaListHead = NULL;
+}
