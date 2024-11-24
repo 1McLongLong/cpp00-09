@@ -49,16 +49,23 @@ std::string const &Character::getName() const {
 }
 
 void Character::equip(AMateria* m) {
+  int flag = 0;
   if (!m)
-    return ;
+    exit(1);
   for (int i = 0; i < 4; i++) {
-    if (this->slots[i] == NULL) {
-      if (slots[i] == m) 
-        return ;
+    if (slots[i] == m) {
+      flag = -1;
+      break ;
+    }
+    if (slots[i] == NULL)
+    {
+      flag = -1;
       slots[i] = m;
       break ;
     }
   }
+  if (!flag)
+    delete m;
 }
 
 void Character::unequip(int idx) {

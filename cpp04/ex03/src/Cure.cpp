@@ -23,7 +23,10 @@ Cure::~Cure() {
 }
 
 Cure *Cure::clone() const {
-  return new Cure();
+  Cure *newCure = new(std::nothrow) Cure();
+  if (newCure == NULL)
+    exit(EXIT_FAILURE);
+  return newCure;
 }
 
 void Cure::use(ICharacter& target) {

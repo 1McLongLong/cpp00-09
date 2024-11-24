@@ -24,7 +24,12 @@ Ice::~Ice() {
 
 
 Ice *Ice::clone() const {
-  return new Ice();
+  return new Ice(); 
+  Ice *newIce = new(std::nothrow) Ice();
+  if (newIce == NULL)
+    exit(EXIT_FAILURE);
+  return newIce;
+
 }
 
 void Ice::use(ICharacter& target) {

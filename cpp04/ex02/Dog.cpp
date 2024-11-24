@@ -2,14 +2,17 @@
 
 Dog::Dog() {
   type = "Dog";
-  brain = new Brain();
+  brain = new(std::nothrow) Brain();  
+  if (brain == NULL)
+    exit(EXIT_FAILURE);
   std::cout << "Dog default constructor is called\n";
 }
 
 Dog::Dog(const Dog &copy) : Animal(copy) {
-  std::cout << "Dog Copy constructor constructor is called\n";
-  this->type = copy.type;
-  this->brain = new Brain(*(copy.brain));
+  std::cout << "Dog copy constructor constructor is called\n";
+  this->brain = new(std::nothrow) Brain(*(copy.brain));  
+  if (brain == NULL)
+    exit(EXIT_FAILURE);
 }
 
 Dog &Dog::operator=(const Dog &copy) {
@@ -17,7 +20,9 @@ Dog &Dog::operator=(const Dog &copy) {
   if (this != &copy) {
     Animal::operator=(copy);
     delete brain;
-    this->brain = new Brain(*(copy.brain)); 
+    this->brain = new(std::nothrow) Brain(*(copy.brain)); 
+    if (brain == NULL)
+      exit(EXIT_FAILURE);
   }
   return *this;
 }
