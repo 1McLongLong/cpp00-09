@@ -1,12 +1,12 @@
 #include "../inc/Character.hpp"
 
-Character::Character() : name("default"), materiaListHead(NULL)  {
+Character::Character() : name("default"){
   for (int i = 0; i < 4; i++)
     slots[i] = NULL;
   // std::cout << "Character default constructor is called\n";
 }
 
-Character::Character(std::string name) : name(name), materiaListHead(NULL) {
+Character::Character(std::string name) : name(name) {
   for (int i = 0; i < 4; i++)
     slots[i] = NULL;
   // std::cout << "Character default constructor is called\n";
@@ -39,7 +39,9 @@ Character &Character::operator=(const Character &copy) {
 
 Character::~Character() {
   // std::cout << "Character destructor is called\n";
-  clearMateriaList();
+  for (int i = 0; i < 4; i++) {
+      delete slots[i];
+  }
 }
 
 std::string const &Character::getName() const {
@@ -57,8 +59,6 @@ void Character::equip(AMateria* m) {
       break ;
     }
   }
-  MateriaNode* newNode = new MateriaNode(m, materiaListHead);
-  materiaListHead = newNode;
 }
 
 void Character::unequip(int idx) {
@@ -72,13 +72,3 @@ void Character::use(int idx, ICharacter& target) {
   this->slots[idx]->use(target);
 }
 
-void Character::clearMateriaList() {
-  MateriaNode* current = materiaListHead;
-  while (current != NULL) {
-    MateriaNode* temp = current;
-    delete current->materia;
-    current = current->next;
-    delete temp;
-  }
-  materiaListHead = NULL;
-}
