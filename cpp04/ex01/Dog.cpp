@@ -8,7 +8,6 @@ Dog::Dog() {
 
 Dog::Dog(const Dog &copy) : Animal(copy) {
   std::cout << "Dog copy constructor constructor is called\n";
-  this->type = copy.type;
   this->brain = new Brain(*(copy.brain));
 }
 
