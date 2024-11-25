@@ -1,11 +1,11 @@
-#include "../inc/Ice.hpp"
+#include "Ice.hpp"
 
 Ice::Ice() {
   type = "ice";
   // std::cout << "Ice default constructor is called\n";
 }
 
-Ice::Ice(const Ice &copy) : AMateria(copy) {
+Ice::Ice(const Ice &copy) {
   // std::cout << "Ice Copy constructor called\n";
   *this = copy;
 }
@@ -24,7 +24,6 @@ Ice::~Ice() {
 
 
 Ice *Ice::clone() const {
-  return new Ice(); 
   Ice *newIce = new(std::nothrow) Ice();
   if (newIce == NULL)
     exit(EXIT_FAILURE);

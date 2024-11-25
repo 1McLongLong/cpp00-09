@@ -1,4 +1,4 @@
-#include "../inc/AMateria.hpp"
+#include "AMateria.hpp"
 
 AMateria::AMateria() {
   this->type = "default";

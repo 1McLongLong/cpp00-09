@@ -1,19 +1,15 @@
-#include "../inc/AMateria.hpp"
-#include "../inc/Ice.hpp"
-#include "../inc/Cure.hpp"
-#include "../inc/Character.hpp"
-#include "../inc/MateriaSource.hpp"
+#include "AMateria.hpp"
+#include "Ice.hpp"
+#include "Cure.hpp"
+#include "Character.hpp"
+#include "MateriaSource.hpp"
 
-
-
-void f() {
-	system("leaks inter");
-}
 
 int main() {
-  // atexit(f);
   IMateriaSource* src = new MateriaSource();
   src->learnMateria(new Ice());
+  src->learnMateria(new Cure());
+  src->learnMateria(new Cure());
   src->learnMateria(new Cure());
   
   ICharacter* me = new Character("me");

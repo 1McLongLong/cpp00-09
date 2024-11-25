@@ -1,4 +1,4 @@
-#include "../inc/MateriaSource.hpp"
+#include "MateriaSource.hpp"
 
 MateriaSource::MateriaSource() {
   for (int i = 0; i < 4; i++)
@@ -26,13 +26,22 @@ MateriaSource::~MateriaSource() {
   // std::cout << "MateriaSource destructor is called\n";
   for (int i = 0; i < 4; i++)
   {
-    delete slots[i];
+    if (slots[i] != NULL)
+    {
+      delete slots[i];
+      slots[i] = NULL;
+    }
   }
 }
 
 void MateriaSource::learnMateria(AMateria *m) {
   for (int i = 0; i < 4; i++) {
-    if (slots[i] == NULL) {
+    if (slots[i] == m)
+      return ;
+  }
+  for (int i = 0; i < 4; i++) {
+    if (slots[i] == NULL) 
+    {
       slots[i] = m;
       return ;
     }

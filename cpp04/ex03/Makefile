@@ -1,7 +1,7 @@
 CC = c++
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRCF = ./src/Ice.cpp ./src/Cure.cpp ./src/main.cpp ./src/AMateria.cpp ./src/Character.cpp ./src/MateriaSource.cpp   
+SRCF = Ice.cpp Cure.cpp main.cpp AMateria.cpp Character.cpp MateriaSource.cpp   
 OBJF = $(SRCF:.cpp=.o)
 NAME = ./inter
 
@@ -11,8 +11,8 @@ $(NAME): $(OBJF)
 	@$(CC) $(FLAGS) $^ -o $@
 	@echo "🚀🚀🚀 Mission complete!"
 
-%.o : %.cpp ./inc/Ice.hpp ./inc/Cure.hpp ./inc/AMateria.hpp ./inc/Character.hpp ./inc/ICharacter.hpp ./inc/MateriaSource.hpp ./inc/IMateriaSource.hpp
-	@$(CC) $(CFLAGS) -c $< -o $@ 
+%.o : %.cpp Ice.hpp Cure.hpp AMateria.hpp Character.hpp ICharacter.hpp MateriaSource.hpp IMateriaSource.hpp
+	@$(CC) $(FLAGS) -c $< -o $@ 
 
 clean:
 	@rm -f $(OBJF)

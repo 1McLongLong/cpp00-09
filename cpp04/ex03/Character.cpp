@@ -1,4 +1,4 @@
-#include "../inc/Character.hpp"
+#include "Character.hpp"
 
 Character::Character() : name("default"){
   for (int i = 0; i < 4; i++)
@@ -40,7 +40,11 @@ Character &Character::operator=(const Character &copy) {
 Character::~Character() {
   // std::cout << "Character destructor is called\n";
   for (int i = 0; i < 4; i++) {
+    if (slots[i] != NULL)
+    {
       delete slots[i];
+      slots[i] = NULL;
+    }
   }
 }
 
@@ -51,7 +55,7 @@ std::string const &Character::getName() const {
 void Character::equip(AMateria* m) {
   int flag = 0;
   if (!m)
-    exit(1);
+    exit(EXIT_FAILURE);
   for (int i = 0; i < 4; i++) {
     if (slots[i] == m) {
       flag = -1;
@@ -76,6 +80,6 @@ void Character::unequip(int idx) {
 void Character::use(int idx, ICharacter& target) {
   if ((idx < 0 || idx > 3) || slots[idx] == NULL)
     return ;
-  this->slots[idx]->use(target);
+  slots[idx]->use(target);
 }
 

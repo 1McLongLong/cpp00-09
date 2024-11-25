@@ -2,11 +2,6 @@
 #include "Cat.hpp"
 #include "Dog.hpp"
 
-
-void f() {
-	system("leaks poly");
-}
-
 int main()
 {
 	const Animal* j = new Dog();
@@ -30,8 +25,6 @@ int main()
 
   for (int i = 0; i < 4; i++)
     delete animals[i];
-
-  // atexit(f);
 
   return 0;
 }
