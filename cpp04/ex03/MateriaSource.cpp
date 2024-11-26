@@ -35,6 +35,7 @@ MateriaSource::~MateriaSource() {
 }
 
 void MateriaSource::learnMateria(AMateria *m) {
+  int flag = 0;
   for (int i = 0; i < 4; i++) {
     if (slots[i] == m)
       return ;
@@ -42,10 +43,13 @@ void MateriaSource::learnMateria(AMateria *m) {
   for (int i = 0; i < 4; i++) {
     if (slots[i] == NULL) 
     {
+      flag = -1;
       slots[i] = m;
       return ;
     }
   }
+  if (!flag)
+    delete m;
 }
 
 AMateria *MateriaSource::createMateria(std::string const &type) {
