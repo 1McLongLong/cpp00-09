@@ -1,9 +1,9 @@
 CC = c++
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRCF = main.cpp Bureaucrat.cpp
+SRCF = main.cpp Bureaucrat.cpp Form.cpp
 OBJF = $(SRCF:.cpp=.o)
-NAME = ./Bureau
+NAME = ./Form
 
 all : $(NAME)
 
@@ -11,7 +11,7 @@ $(NAME): $(OBJF)
 	@$(CC) $(FLAGS) $^ -o $@
 	@echo "🚀🚀🚀 Mission complete!"
 
-%.o : %.cpp Bureaucrat.hpp
+%.o : %.cpp Bureaucrat.hpp Form.hpp
 	@$(CC) $(FLAGS) -c $< -o $@ 
 
 clean:
