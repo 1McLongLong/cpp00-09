@@ -29,7 +29,7 @@ public:
   void          beSigned(Bureaucrat &obj);
 };
 
-std::ostream &operator<<(std::ostream &out, const Form &obj);
+std::ostream    &operator<<(std::ostream &out, const Form &obj);
 
 
 #endif

@@ -4,7 +4,7 @@
 #include <iostream>
 #include <exception>
 
-#include "Form.hpp"
+#include "AForm.hpp"
 
 class Bureaucrat {
   const std::string name;
@@ -28,6 +28,6 @@ public:
   void          signForm(Form &form);
 };
 
-std::ostream &operator<<(std::ostream &out, const Bureaucrat &obj);
+std::ostream    &operator<<(std::ostream &out, const Bureaucrat &obj);
 
 #endif
