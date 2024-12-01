@@ -1,4 +1,5 @@
 #include "RobotomyRequestForm.hpp"
+#include "Bureaucrat.hpp"
 
 RobotomyRequestForm::RobotomyRequestForm() : AForm("default", 72, 45), target("test")
 {}
@@ -21,6 +22,9 @@ RobotomyRequestForm::~RobotomyRequestForm()
 
 
 void RobotomyRequestForm::execute(const Bureaucrat& b) const {
+  if (!this->getSigned() && b.getGrade() > this->getSignGrade()) {
+    throw AForm::GradeTooLowException();
+  } 
   int tmp = std::rand() % 2; 
   if (tmp) {
     std::cout << this->getName() << " succeeded in becoming a robot" << std::endl;

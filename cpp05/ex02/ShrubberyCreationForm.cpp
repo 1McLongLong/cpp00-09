@@ -26,8 +26,10 @@ void ShrubberyCreationForm::execute(const Bureaucrat& b) const {
 		throw AForm::GradeTooLowException();
   }
   std::ofstream new_file(target);
-  if (!new_file.is_open())
-    std::cout << "test";
+  if (!new_file.is_open()) {
+    std::cerr << "error opening file\n";
+    exit(EXIT_FAILURE);
+  }
 
   std::string Art = 
     "          .     .  .      +     .      .          .\n"
