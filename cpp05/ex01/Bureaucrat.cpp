@@ -1,6 +1,5 @@
 #include "Bureaucrat.hpp"
 
-
 Bureaucrat::Bureaucrat(std::string name, int grade) : name(name) {
   if (grade < 1)
     throw GradeTooHighException();
@@ -64,8 +63,7 @@ void Bureaucrat::signForm(Form &form) {
     std::cout << name << " signed " << form.getName() << '\n';
   }
   catch (std::exception &e) {
-    std::cout << name << " couldn’t sign " << form.getName()
-      << " because " << e.what() << '\n';
+    std::cout << name << " couldn’t sign " << form.getName() << " because " << e.what() << '\n';
   }
 }
 

@@ -1,6 +1,4 @@
 #include "Bureaucrat.hpp"
-#include <exception>
-
 
 Bureaucrat::Bureaucrat(std::string name, int grade) : name(name) {
   if (grade < 1)

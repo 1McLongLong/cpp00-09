@@ -23,7 +23,7 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
  
 void ShrubberyCreationForm::execute(const Bureaucrat& b) const {
   if (!this->getSigned() && b.getGrade() > this->getSignGrade()) {
-		throw AForm::GradeTooLowException();
+    throw AForm::GradeTooLowException();
   }
   std::ofstream new_file(target);
   if (!new_file.is_open()) {
