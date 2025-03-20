@@ -1,9 +1,9 @@
 CC = c++
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRCF = main.cpp 
+SRCF = main.cpp ScalarConverter.cpp
 OBJF = $(SRCF:.cpp=.o)
-NAME = ./Bureau
+NAME = ./convert
 
 all : $(NAME)
 
@@ -11,7 +11,7 @@ $(NAME): $(OBJF)
 	@$(CC) $(FLAGS) $^ -o $@
 	@echo "🚀🚀🚀 Mission complete!"
 
-%.o : %.cpp
+%.o : %.cpp ScalarConverter.hpp
 	@$(CC) $(FLAGS) -c $< -o $@ 
 
 clean:
