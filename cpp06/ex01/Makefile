@@ -1,9 +1,9 @@
 CC = c++
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRCF = main.cpp Bureaucrat.cpp
+SRCF = main.cpp Serializer.cpp 
 OBJF = $(SRCF:.cpp=.o)
-NAME = ./Bureau
+NAME = ./Serializer
 
 all : $(NAME)
 
@@ -11,15 +11,15 @@ $(NAME): $(OBJF)
 	@$(CC) $(FLAGS) $^ -o $@
 	@echo "🚀🚀🚀 Mission complete!"
 
-%.o : %.cpp Bureaucrat.hpp
+%.o : %.cpp Serializer.hpp
 	@$(CC) $(FLAGS) -c $< -o $@ 
 
 clean:
 	@rm -f $(OBJF)
-	@echo "BYE BYE 👋"
+	@echo "BYE BYE 👋🧏"
 
 fclean: clean
 	@rm -f $(NAME)
-	@echo "BYE BYE CPP👋"
+	@echo "BYE BYE CPP👋🧏"
 
 re: fclean all
