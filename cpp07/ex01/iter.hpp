@@ -10,8 +10,8 @@ void printElement(T &element) {
 }
 
 template <typename T>
-void incrementElement(T &element) {
-  element++;
+void sqrt(T &element) {
+  element = element * element;
 }
 
 template <typename T>
