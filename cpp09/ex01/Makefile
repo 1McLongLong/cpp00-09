@@ -1,9 +1,9 @@
 CC = c++
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRCF = main.cpp Serializer.cpp 
+SRCF = main.cpp RPN.cpp 
 OBJF = $(SRCF:.cpp=.o)
-NAME = ./Serializer
+NAME = ./RPN
 
 all : $(NAME)
 
@@ -11,7 +11,7 @@ $(NAME): $(OBJF)
 	@$(CC) $(FLAGS) $^ -o $@
 	@echo "🚀🚀🚀 Mission complete!"
 
-%.o : %.cpp Serializer.hpp
+%.o : %.cpp RPN.hpp
 	@$(CC) $(FLAGS) -c $< -o $@ 
 
 clean:
