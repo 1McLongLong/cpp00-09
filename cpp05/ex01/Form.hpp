@@ -7,9 +7,9 @@ class Bureaucrat;
 
 class Form {
   const std::string name;
-  bool              _signed;
   const int         signGrade;
   const int         signExec;
+  bool              _signed;
 
 public:
   Form(std::string name, int sGrade, int eGrade);

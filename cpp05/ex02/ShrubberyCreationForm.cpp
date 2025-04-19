@@ -7,9 +7,8 @@ ShrubberyCreationForm::ShrubberyCreationForm() : AForm("default", 145, 137), tar
 ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : AForm(target, 145, 137), target(target)
 {}
 
-ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &copy) {
-  *this = copy;
-}
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &copy) : AForm(copy), target(copy.target)
+{}
 
 ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationForm &copy) {
   AForm::operator=(copy);
@@ -22,13 +21,13 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
 
  
 void ShrubberyCreationForm::execute(const Bureaucrat& b) const {
-  if (!this->getSigned() && b.getGrade() > this->getSignGrade()) {
+  if (!this->getSigned() && b.getGrade() < this->getSignExec()) {
     throw AForm::GradeTooLowException();
   }
-  std::ofstream new_file(target);
+  std::string file_name = target + "_shrubbery";
+  std::ofstream new_file(file_name.c_str());
   if (!new_file.is_open()) {
-    std::cerr << "error opening file\n";
-    exit(EXIT_FAILURE);
+    throw std::runtime_error("error opening file");
   }
 
   std::string Art = 

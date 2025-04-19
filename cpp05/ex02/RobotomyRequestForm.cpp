@@ -7,9 +7,8 @@ RobotomyRequestForm::RobotomyRequestForm() : AForm("default", 72, 45), target("t
 RobotomyRequestForm::RobotomyRequestForm(std::string target) : AForm(target, 72, 45), target(target)
 {}
 
-RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &copy) {
-  *this = copy;
-}
+RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &copy) : AForm(copy), target(copy.target)
+{}
 
 RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &copy) {
   AForm::operator=(copy);
@@ -22,7 +21,7 @@ RobotomyRequestForm::~RobotomyRequestForm()
 
 
 void RobotomyRequestForm::execute(const Bureaucrat& b) const {
-  if (!this->getSigned() && b.getGrade() > this->getSignGrade()) {
+  if (!this->getSigned() && b.getGrade() < this->getSignExec()) {
     throw AForm::GradeTooLowException();
   } 
   int tmp = std::rand() % 2; 

@@ -2,9 +2,9 @@
 
 Bureaucrat::Bureaucrat(std::string name, int grade) : name(name) {
   if (grade < 1)
-    throw GradeTooHighException();
+    throw Bureaucrat::GradeTooHighException();
   else if (grade > 150)
-    throw GradeTooLowException();
+    throw Bureaucrat::GradeTooLowException();
   else
     this->grade = grade;
 }

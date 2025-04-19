@@ -1,6 +1,6 @@
 #include "Bureaucrat.hpp"
 
-AForm::AForm() : name("default"), signGrade(0), signExec(0)
+AForm::AForm() : name("default"), signGrade(0), signExec(0), _signed(0)
 {}
 
 AForm::AForm(std::string name, int sGrade, int eGrade) : name(name), signGrade(sGrade), signExec(eGrade), _signed(0)
