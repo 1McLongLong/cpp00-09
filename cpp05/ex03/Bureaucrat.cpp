@@ -1,6 +1,4 @@
 #include "Bureaucrat.hpp"
-#include <exception>
-
 
 Bureaucrat::Bureaucrat(std::string name, int grade) : name(name) {
   if (grade < 1)
@@ -75,7 +73,7 @@ void Bureaucrat::executeForm(AForm const &form) {
     std::cout << name << " executed " << form.getName() << '\n';
   }
   catch (std::exception &e) {
-    std::cout << name << " couldn’t execute" << form.getName() << " because " << e.what() << '\n';
+    std::cout << name << " couldn’t execute " << form.getName() << " because " << e.what() << '\n';
   }
 }
 

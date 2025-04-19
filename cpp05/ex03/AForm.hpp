@@ -23,6 +23,9 @@ public:
   class GradeTooLowException : public std::exception {
     const char* what() const throw();
   };
+  class FormNotSigned : public std::exception {
+    const char* what() const throw();
+  };
   std::string   getName() const;
   bool          getSigned() const;
   int           getSignGrade() const;

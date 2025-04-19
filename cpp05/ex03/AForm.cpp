@@ -1,6 +1,6 @@
 #include "Bureaucrat.hpp"
 
-AForm::AForm() : name("default"), signGrade(0), signExec(0)
+AForm::AForm() : name("default"), signGrade(150), signExec(150), _signed(0)
 {}
 
 AForm::AForm(std::string name, int sGrade, int eGrade) : name(name), signGrade(sGrade), signExec(eGrade), _signed(0)
@@ -23,6 +23,10 @@ const char* AForm::GradeTooHighException::what() const throw() {
 
 const char* AForm::GradeTooLowException::what() const throw() {
   return "Grade Too Low!!!";
+}
+
+const char* AForm::FormNotSigned::what() const throw() {
+  return "Form should be signed!!!";
 }
 
 std::string AForm::getName() const {

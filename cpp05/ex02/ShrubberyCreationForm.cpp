@@ -21,34 +21,38 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
 
  
 void ShrubberyCreationForm::execute(const Bureaucrat& b) const {
-  if (!this->getSigned() && b.getGrade() < this->getSignExec()) {
+  if (!this->getSigned())
+    throw AForm::FormNotSigned();
+  if (b.getGrade() <= this->getSignExec()) {
+    std::string file_name = target + "_shrubbery";
+    std::ofstream new_file(file_name.c_str());
+    if (!new_file.is_open()) {
+      throw std::runtime_error("error opening file");
+    }
+
+    std::string Art = 
+      "          .     .  .      +     .      .          .\n"
+      "     .       .      .     #       .           .\n"
+      "        .      .         ###            .      .      .\n"
+      "      .      .   \"#:. .:##\"##:. .:#\"  .      .\n"
+      "          .      . \"####\"###\"####\"  .\n"
+      "       .     \"#:.    .:#\"###\"#:.    .:#\"  .        .       .\n"
+      "  .             \"#########\"#########\"        .        .\n"
+      "        .    \"#:.  \"####\"###\"####\"  .:#\"   .       .\n"
+      "     .     .  \"#######\"\"##\"##\"\"#######\"                  .\n"
+      "                .\"##\"#####\"#####\"##\"           .      .\n"
+      "    .   \"#:. ...  .:##\"###\"###\"##:.  ... .:#\"     .\n"
+      "      .     \"#######\"##\"#####\"##\"#######\"      .     .\n"
+      "    .    .     \"#####\"\"#######\"\"#####\"    .      .\n"
+      "            .     \"      000      \"    .     .\n"
+      "       .         .   .   000     .        .       .\n"
+      ".. .. ..................O000O........................ ......\n";
+    new_file << Art;
+    new_file.close();
+  }
+  else {
     throw AForm::GradeTooLowException();
   }
-  std::string file_name = target + "_shrubbery";
-  std::ofstream new_file(file_name.c_str());
-  if (!new_file.is_open()) {
-    throw std::runtime_error("error opening file");
-  }
-
-  std::string Art = 
-    "          .     .  .      +     .      .          .\n"
-    "     .       .      .     #       .           .\n"
-    "        .      .         ###            .      .      .\n"
-    "      .      .   \"#:. .:##\"##:. .:#\"  .      .\n"
-    "          .      . \"####\"###\"####\"  .\n"
-    "       .     \"#:.    .:#\"###\"#:.    .:#\"  .        .       .\n"
-    "  .             \"#########\"#########\"        .        .\n"
-    "        .    \"#:.  \"####\"###\"####\"  .:#\"   .       .\n"
-    "     .     .  \"#######\"\"##\"##\"\"#######\"                  .\n"
-    "                .\"##\"#####\"#####\"##\"           .      .\n"
-    "    .   \"#:. ...  .:##\"###\"###\"##:.  ... .:#\"     .\n"
-    "      .     \"#######\"##\"#####\"##\"#######\"      .     .\n"
-    "    .    .     \"#####\"\"#######\"\"#####\"    .      .\n"
-    "            .     \"      000      \"    .     .\n"
-    "       .         .   .   000     .        .       .\n"
-    ".. .. ..................O000O........................ ......\n";
-  new_file << Art;
-  new_file.close();
 }
 
 

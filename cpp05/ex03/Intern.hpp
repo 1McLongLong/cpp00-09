@@ -7,9 +7,6 @@
 #include "ShrubberyCreationForm.hpp"
 
 class Intern {
-  AForm* createPresidential(std::string& target);
-  AForm* createRobotomy(std::string& target);
-  AForm* createShrubbery(std::string& target);
 public:
   Intern();
   // Intern(const Intern &copy);
@@ -18,6 +15,9 @@ public:
   class Error : public std::exception {
     const char* what() const throw();
   };
+  AForm* createPresidential(std::string& target);
+  AForm* createRobotomy(std::string& target);
+  AForm* createShrubbery(std::string& target);
   AForm *makeForm(std::string formName, std::string target);
 };
 

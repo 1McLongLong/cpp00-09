@@ -21,16 +21,19 @@ RobotomyRequestForm::~RobotomyRequestForm()
 
 
 void RobotomyRequestForm::execute(const Bureaucrat& b) const {
-  if (!this->getSigned() && b.getGrade() < this->getSignExec()) {
+  if (!this->getSigned())
+    throw AForm::FormNotSigned();
+  if (b.getGrade() <= this->getSignExec()) {
+    int tmp = std::rand() % 2; 
+    if (tmp) {
+      std::cout << this->getName() << " succeeded in becoming a robot" << std::endl;
+    }
+    else {
+      std::cout << "sorry... " << this->getName() << " failed to becoming a robot" << std::endl;
+    }
+  }
+  else
     throw AForm::GradeTooLowException();
-  } 
-  int tmp = std::rand() % 2; 
-  if (tmp) {
-    std::cout << this->getName() << " succeeded in becoming a robot" << std::endl;
-  }
-  else {
-    std::cout << "sorry... " << this->getName() << " failed to becoming a robot" << std::endl;
-  }
 }
 
 
