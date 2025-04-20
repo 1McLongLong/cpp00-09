@@ -9,8 +9,8 @@
 class Intern {
 public:
   Intern();
-  // Intern(const Intern &copy);
-  // Intern &operator=(const Intern &copy);
+  Intern(const Intern &copy);
+  Intern &operator=(const Intern &copy);
   ~Intern();
   class Error : public std::exception {
     const char* what() const throw();

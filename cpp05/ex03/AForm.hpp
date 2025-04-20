@@ -16,7 +16,7 @@ public:
   AForm(std::string name, int sGrade, int eGrade);
   AForm(const AForm &copy);
   AForm &operator=(const AForm &copy);
-  ~AForm();
+  virtual ~AForm();
   class GradeTooHighException : public std::exception {
     const char* what() const throw();
   };
