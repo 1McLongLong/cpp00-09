@@ -13,11 +13,11 @@ public:
   Intern &operator=(const Intern &copy);
   ~Intern();
   class Error : public std::exception {
-    const char* what() const throw();
+    const char *what() const throw();
   };
-  AForm *createPresidential(std::string& target);
-  AForm *createRobotomy(std::string& target);
-  AForm *createShrubbery(std::string& target);
+  AForm *createPresidential(std::string &target);
+  AForm *createRobotomy(std::string &target);
+  AForm *createShrubbery(std::string &target);
   AForm *makeForm(std::string formName, std::string target);
 };
 
