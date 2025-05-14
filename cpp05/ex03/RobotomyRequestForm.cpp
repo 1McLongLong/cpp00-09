@@ -23,17 +23,23 @@ RobotomyRequestForm::~RobotomyRequestForm()
 void RobotomyRequestForm::execute(const Bureaucrat& b) const {
   if (!this->getSigned())
     throw AForm::FormNotSigned();
-  if (b.getGrade() <= this->getSignExec()) {
-    int tmp = std::rand() % 2; 
-    if (tmp) {
-      std::cout << this->getName() << " succeeded in becoming a robot" << std::endl;
-    }
-    else {
-      std::cout << "sorry... " << this->getName() << " failed to becoming a robot" << std::endl;
-    }
-  }
-  else
+  if (b.getGrade() > this->getSignExec())
     throw AForm::GradeTooLowException();
+
+  std::cout << "*BZZZT! DRILLING NOISES*" << std::endl;
+  static bool seeded = false;
+  if (!seeded) {
+    std::srand(static_cast<unsigned int>(std::time(0)));
+    seeded = true;
+  }
+  
+  int tmp = std::rand() % 2; 
+  if (tmp) {
+    std::cout << this->getName() << " has been robotomized successfully!" << std::endl;
+  }
+  else {
+    std::cout << "sorry... " << this->getName() << " failed his robotomy!" << std::endl;
+  }
 }
 
 
