@@ -12,6 +12,7 @@ class Form {
   bool              _signed;
 
 public:
+  Form();
   Form(std::string name, int sGrade, int eGrade);
   Form(const Form &copy);
   Form &operator=(const Form &copy);

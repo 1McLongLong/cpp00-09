@@ -1,7 +1,8 @@
 #include "Bureaucrat.hpp"
 
-Form::Form(std::string name, int sGrade, int eGrade) : name(name), signGrade(sGrade), signExec(eGrade), _signed(0)
-{
+Form::Form() : name("default"), signGrade(150), signExec(150), _signed(0) {}
+
+Form::Form(std::string name, int sGrade, int eGrade) : name(name), signGrade(sGrade), signExec(eGrade), _signed(0) {
   if (sGrade < 1 || eGrade < 1)
     throw Form::GradeTooHighException();
   else if (sGrade > 150 || eGrade > 150)
