@@ -1,13 +1,21 @@
 #include "Base.hpp"
 
 
+Base::Base() {}
+
+Base::Base(const Base &other) { 
+  (void)other; 
+}
+
+Base &Base::operator=(const Base &other) {
+  (void)other;
+  return *this;
+}
 
 Base::~Base() {}
 
-
-
 Base *generate(void) {
-	std::srand(std::time(0));
+	std::srand(static_cast<unsigned int>(std::time(0)));
 	int r = std::rand() % 3;
   if (r == 0)
     return new A();

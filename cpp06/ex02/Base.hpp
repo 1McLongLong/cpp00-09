@@ -6,8 +6,11 @@
 #include <ctime>
 
 class Base {
-  public:
-    virtual ~Base();
+public:
+  Base();
+  Base(const Base &other);
+  Base &operator=(const Base &other);
+  virtual ~Base();
 };
 
 class A : public Base {};

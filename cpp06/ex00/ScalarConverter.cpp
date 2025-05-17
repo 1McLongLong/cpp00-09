@@ -105,9 +105,20 @@ void ScalarConverter::convert(const std::string &str) {
     return ;
   }
   else {
+    if (str[0] == '.') {
+      std::cout << "INVALID INPUT\n";
+      return;
+    }
     char *endptr;
     bool isFloat = (str[str.length() - 1] == 'f');
     double value = std::strtod(str.c_str(), &endptr); // Convert to double
+    std::cout << str[0] << std::endl;
+    if (isFloat) {
+      if (str[str.length() - 2] == '.') {
+        std::cout << "INVALID INPUT\n";
+        return;
+      }
+    }
     // Handle invalid input (e.g., "abc", "42abc")
     if (*endptr != '\0' && (!isFloat || *endptr != 'f' || *(endptr + 1) != '\0')) {
       std::cout << "INVALID INPUT\n";
