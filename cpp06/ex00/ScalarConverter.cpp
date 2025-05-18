@@ -15,7 +15,7 @@ ScalarConverter &ScalarConverter::operator=(const ScalarConverter &copy) {
 ScalarConverter::~ScalarConverter() {}
 
 
-std::string to_string(float value) {
+std::string to_string(double value) {
     std::ostringstream oss;
     oss << value;
     return oss.str();
@@ -37,8 +37,8 @@ void convertToInt(const std::string &str) {
   double d = static_cast<double>(i);
   std::cout << "char: " << ((c == i && std::isprint(c)) ? "'" + std::string(1, c) + "'" : "Non displayable") << std::endl;
   std::cout << "int: " << i << std::endl;
-  std::cout << "float: " << (f == i ? to_string(f) + ".0f" : "impossible") << std::endl;
-  std::cout << "double: " << (d == i ? to_string(d) + ".0" : "impossible") << std::endl;
+  std::cout << "float: " << to_string(f) + ".0f" << std::endl;
+  std::cout << "double: " << to_string(d) + ".0" << std::endl;
 }
 
 void convertToFloatOrDouble(double &value) {
@@ -112,7 +112,6 @@ void ScalarConverter::convert(const std::string &str) {
     char *endptr;
     bool isFloat = (str[str.length() - 1] == 'f');
     double value = std::strtod(str.c_str(), &endptr); // Convert to double
-    std::cout << str[0] << std::endl;
     if (isFloat) {
       if (str[str.length() - 2] == '.') {
         std::cout << "INVALID INPUT\n";
