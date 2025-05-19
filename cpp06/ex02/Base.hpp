@@ -7,9 +7,6 @@
 
 class Base {
 public:
-  Base();
-  Base(const Base &other);
-  Base &operator=(const Base &other);
   virtual ~Base();
 };
 
@@ -18,9 +15,9 @@ class B : public Base {};
 class C : public Base {};
 
 
-Base *generate(void);
-void identify(Base *p);
-void identify(Base &p);
+Base  *generate(void);
+void  identify(Base *p);
+void  identify(Base &p);
 
 
 

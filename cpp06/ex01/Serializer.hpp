@@ -6,8 +6,8 @@
 #include <stdint.h>
 
 class Data {
-  public:
-    int value;
+public:
+  int value;
 };
 
 class Serializer {
@@ -15,9 +15,9 @@ class Serializer {
   Serializer(const Serializer& other);
   Serializer& operator=(const Serializer& other);
   ~Serializer();
-  public:
-    static uintptr_t serialize(Data* ptr);
-    static Data*     deserialize(uintptr_t raw);
+public:
+  static uintptr_t serialize(Data* ptr);
+  static Data*     deserialize(uintptr_t raw);
 };
 
 
