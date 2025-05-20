@@ -15,13 +15,13 @@ ScalarConverter &ScalarConverter::operator=(const ScalarConverter &copy) {
 ScalarConverter::~ScalarConverter() {}
 
 
-std::string to_string(double value) {
+std::string ScalarConverter::to_string(double value) {
     std::ostringstream oss;
     oss << value;
     return oss.str();
 }
 
-void convertToInt(const std::string &str) {
+void ScalarConverter::convertToInt(const std::string &str) {
   char *endptr;
   long temp = std::strtol(str.c_str(), &endptr, 10);
   if (temp > INT_MAX || temp < INT_MIN) {
@@ -41,7 +41,7 @@ void convertToInt(const std::string &str) {
   std::cout << "double: " << to_string(d) + ".0" << std::endl;
 }
 
-void convertToFloatOrDouble(double &value) {
+void ScalarConverter::convertToFloatOrDouble(double &value) {
   float fValue = static_cast<float>(value);
 
   int i = static_cast<int>(value);
@@ -68,7 +68,7 @@ void convertToFloatOrDouble(double &value) {
   std::cout << "\n";
 }
 
-bool isPureInteger(const std::string &str) {
+bool ScalarConverter::isPureInteger(const std::string &str) {
   size_t i = (str[0] == '-') ? 1 : 0; // Skip negative sign if present
   while (i < str.length()) {
     if (!std::isdigit(str[i])) return false;

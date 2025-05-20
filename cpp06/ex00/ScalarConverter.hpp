@@ -11,12 +11,17 @@
 
 class ScalarConverter {
   ScalarConverter();
-  ScalarConverter(const ScalarConverter &copy);
-  ScalarConverter &operator=(const ScalarConverter &copy);
-  ~ScalarConverter();
+  static std::string  to_string(double value);
+  static void         convertToInt(const std::string &str);
+  static bool         isPureInteger(const std::string &str);
+  static void         convertToFloatOrDouble(double &value);
 
 public:
-  static void convert(const std::string &str);
+  ~ScalarConverter();
+  ScalarConverter(const ScalarConverter &copy);
+  ScalarConverter &operator=(const ScalarConverter &copy);
+
+  static void         convert(const std::string &str);
 };
 
 

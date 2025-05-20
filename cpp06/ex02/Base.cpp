@@ -13,7 +13,6 @@ Base *generate(void) {
     default:
       return new C();
   }
-
 }
 
 // if else
