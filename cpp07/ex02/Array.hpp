@@ -6,45 +6,45 @@
 
 template <typename T>
 class Array {
-  T* _array;
-  int _size;
-  public:
-  Array() : _array(NULL), _size(0) {}
-  Array(unsigned int n) : _array(new T[n]), _size(n) {}
-  Array(const Array &copy) : _array(new T[copy._size]), _size(copy._size) {
-    for (int i = 0; i < _size; i++) {
-      _array[i] = copy._array[i];
+  T* arr;
+  int arr_size;
+public:
+  Array() : arr(NULL), arr_size(0) {}
+  Array(unsigned int n) : arr(new T[n]), arr_size(n) {}
+  Array(const Array &copy) : arr(new T[copy.arr_size]), arr_size(copy.arr_size) {
+    for (int i = 0; i < arr_size; i++) {
+      arr[i] = copy.arr[i];
     }
   }
   Array &operator=(const Array &copy) {
     if (this != &copy) {
-    delete[] _array;
-    _size = copy._size;
-    _array = new T[copy._size];
-    for (int i = 0; i < _size; i++) {
-      _array[i] = copy._array[i];
-    }
+      delete[] arr;
+      arr_size = copy.arr_size;
+      arr = new T[copy.arr_size];
+      for (int i = 0; i < arr_size; i++) {
+        arr[i] = copy.arr[i];
+      }
     }
     return *this;
   }
   ~Array() {
-    delete[] _array; 
+    delete[] arr; 
   }
 
   T &operator[](int index) {
-    if (index < 0 || index >= _size) {
+    if (index < 0 || index >= arr_size) {
       throw std::out_of_range("Index out of range");
     }
-    return _array[index];
+    return arr[index];
   }
   const T &operator[](int index) const {
-    if (index < 0 || index >= _size) {
+    if (index < 0 || index >= arr_size) {
       throw std::out_of_range("Index out of range");
     }
-    return _array[index];
+    return arr[index];
   }
 
-  unsigned int size() const { return _size; }
+  unsigned int size() const { return arr_size; }
 };
 
 
