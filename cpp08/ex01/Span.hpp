@@ -10,7 +10,7 @@
 
 class Span {
   std::vector<int>  _vector;
-  unsigned int      size;
+  size_t      size;
 
 public:
   Span();
@@ -19,9 +19,9 @@ public:
   Span &operator=(const Span &other);
   ~Span();
 
-  void          addNumber(int number);
-  unsigned int  shortestSpan() const;
-  unsigned int  longestSpan()  const;
+  void    addNumber(int number);
+  size_t  shortestSpan() const;
+  size_t  longestSpan()  const;
   template <typename T>
     void addNumber(T begin, T end) { 
       for (T it = begin; it != end; it++) 

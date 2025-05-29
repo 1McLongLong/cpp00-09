@@ -27,27 +27,29 @@ void  Span::addNumber(int number) {
     throw std::runtime_error("Span is full");
 }
 
-
-unsigned int  Span::shortestSpan() const {
+size_t  Span::shortestSpan() const {
   if (_vector.size() <= 1)
     throw std::runtime_error("Span is too small");
+  
   std::vector<int> tmp = _vector;
   std::sort(tmp.begin(), tmp.end());
-  long long minSpan = std::numeric_limits<long long>::max();
+  
+  size_t minSpan = std::numeric_limits<size_t>::max();
   for (size_t i = 0; i < tmp.size() - 1; i++) {
-    long long diff = static_cast<long long>(tmp[i + 1]) - tmp[i]; 
-    if (diff < minSpan) minSpan = diff;
+    size_t diff = static_cast<size_t>(tmp[i + 1] - tmp[i]);
+    if (diff < minSpan) 
+      minSpan = diff;
   }
-  return static_cast<unsigned int>(minSpan);
+  return minSpan;
 }
 
 
-unsigned int  Span::longestSpan()  const {
+size_t  Span::longestSpan()  const {
   if (_vector.size() <= 1)
     throw std::runtime_error("Span is too small");
   std::vector<int> tmp = _vector;
   std::sort(tmp.begin(), tmp.end());
-  return static_cast<unsigned int>(tmp[tmp.size() - 1] - tmp[0]);
+  return tmp[tmp.size() - 1] - tmp[0];
 }
 
 
