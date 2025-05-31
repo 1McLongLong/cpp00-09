@@ -36,6 +36,10 @@ BitcoinExchange::~BitcoinExchange() {
   this->data_file.close();
 }
 
+void BitcoinExchange::processInput() {
+  read_dataFile();
+  read_inputFile();
+}
 
 void BitcoinExchange::read_dataFile() {
   std::string line;
@@ -61,7 +65,7 @@ void BitcoinExchange::read_inputFile() {
     try {
       size_t sep = line.find(" | ");
       if (sep == std::string::npos) {
-        throw std::runtime_error("Error: bad input => " + line);
+        throw std::invalid_argument("Error: bad input => " + line);
       }
       std::string date = line.substr(0, sep);
       std::string valueStr = line.substr(sep + 1);
@@ -108,25 +112,6 @@ void BitcoinExchange::parseDate(std::string date) {
     throw std::runtime_error("Error: bad input => " + date);
 }
 
-
-bool BitcoinExchange::checkFloat(std::string value) {
-  int check = 0;
-  if (value[0] == '-')
-    return true;
-
-  for (size_t i = 0; i < value.size(); ++i) {
-    if (value[i] == '.') {
-      check++;
-      if (check > 1)
-        return true;
-    }
-    else if (value[i] < '0' || value[i] > '9') {
-      return true;
-    }
-  }
-  return false;
-}
-
 void BitcoinExchange::search(std::string date, std::string value) {
   std::stringstream ss(value);
   double val;
@@ -146,18 +131,23 @@ void BitcoinExchange::search(std::string date, std::string value) {
   std::cout << date << " => " << value << " = " << (val * price) << std::endl;
 }
 
+bool BitcoinExchange::checkFloat(std::string value) {
+  int check = 0;
+  if (value[0] == '-')
+    return true;
 
-void BitcoinExchange::processInput() {
-  read_dataFile();
-  read_inputFile();
+  for (size_t i = 0; i < value.size(); ++i) {
+    if (value[i] == '.') {
+      check++;
+      if (check > 1)
+        return true;
+    }
+    else if (value[i] < '0' || value[i] > '9') {
+      return true;
+    }
+  }
+  return false;
 }
-
-
-
-
-
-
-
 
 
 

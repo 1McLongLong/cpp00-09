@@ -35,12 +35,12 @@ void PmergeMe::sort() {
   clock_t start_vec = clock();
   mergeInsertionSort(v);
   clock_t end_vec = clock();
-  double duration_vec = (end_vec - start_vec) / static_cast<double>(CLOCKS_PER_SEC);
+  double duration_vec = static_cast<double>(end_vec - start_vec) / (CLOCKS_PER_SEC);
   
   clock_t start_dq = clock();
   mergeInsertionSort(d);
   clock_t end_dq = clock();
-  double duration_dq = (end_dq - start_dq) / static_cast<double>(CLOCKS_PER_SEC);
+  double duration_dq = static_cast<double>(end_dq - start_dq) / (CLOCKS_PER_SEC);
 
   std::cout << "After: ";
   printContainer(v);
