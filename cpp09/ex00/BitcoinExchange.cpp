@@ -133,7 +133,7 @@ void BitcoinExchange::search(std::string date, std::string value) {
 
 bool BitcoinExchange::checkFloat(std::string value) {
   int check = 0;
-  if (value[0] == '-')
+  if (value[0] == '-' || value[0] == '.' || value[value.size() - 1] == '.')
     return true;
 
   for (size_t i = 0; i < value.size(); ++i) {
