@@ -18,6 +18,9 @@ void RPN::calculate(char **argv) {
   std::string str(argv[1]);
   for (size_t i = 0; i < str.length(); i++) {
     if (isdigit(str[i])) {
+      if (i + 1 < str.length() && isdigit(str[i + 1])) {
+        throw std::runtime_error("Error: number bigger than 9");
+      }
       st.push(str[i] - '0');
     }
     else if (str[i] == ' ' || str[i] == '\t') {
@@ -25,7 +28,7 @@ void RPN::calculate(char **argv) {
     }
     else if (str[i] == '+' || str[i] == '-' || str[i] == '*' || str[i] == '/') {
       if (st.size() < 2) {
-        throw std::runtime_error("Error: not enough arguments");
+        throw std::runtime_error("Error");
       }
       int num1 = st.top();
       st.pop();
