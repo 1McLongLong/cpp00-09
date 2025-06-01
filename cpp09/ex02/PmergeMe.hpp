@@ -64,13 +64,13 @@ void PmergeMe::mergeInsertionSort(Container &container) {
 
   Container large;
   for (size_t i = 0; i < pairs.size(); i++) {
-    large.push_back(pairs[i].first);
+    large.push_back(pairs[i].first);                //////////////////////////////////////   HOW DOES push_back() and insert() work with vector and deque?
   }
 
   mergeInsertionSort(large);
   sorted = large;
 
-  if (!pairs.empty()) {
+ /* if (!pairs.empty()) {
     typename Container::iterator pos = std::lower_bound(sorted.begin(), sorted.end(), pairs[0].second);
     sorted.insert(pos, pairs[0].second);
   }
@@ -86,8 +86,11 @@ void PmergeMe::mergeInsertionSort(Container &container) {
   for (size_t i = jacobsthal.back() + 1; i < pairs.size(); i++) {
     typename Container::iterator pos = std::lower_bound(sorted.begin(), sorted.end(), pairs[i].second);
     sorted.insert(pos, pairs[i].second);
+  } */
+  for (size_t i = 0; i < pairs.size(); i++) {
+    typename Container::iterator pos = std::lower_bound(sorted.begin(), sorted.end(), pairs[i].second);
+    sorted.insert(pos, pairs[i].second);
   }
-
   if (has_odd) {
     typename Container::iterator pos = std::lower_bound(sorted.begin(), sorted.end(), odd);
     sorted.insert(pos, odd);
