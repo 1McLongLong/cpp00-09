@@ -110,6 +110,10 @@ void BitcoinExchange::parseDate(std::string date) {
     max_day = 29;
   if (day > max_day)
     throw std::runtime_error("Error: bad input => " + date);
+  if ((year == 2022 && month > 3) ||
+     (year == 2022 && month == 3 && day > 29)) {
+    throw std::runtime_error("Error: bad input => " + date);
+  }
 }
 
 void BitcoinExchange::search(std::string date, std::string value) {
