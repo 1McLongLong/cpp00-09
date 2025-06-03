@@ -7,7 +7,14 @@ PmergeMe::PmergeMe(int argc, char **argv) {
       if (!std::isdigit(argv[i][j]))
         throw std::runtime_error("Error: invalid argument");
     }
-    int num = std::atoi(argv[i]);
+    errno = 0;
+    char *end;
+    long value = std::strtol(argv[i], &end, 10);
+
+    if (errno == ERANGE || value < INT_MIN || value > INT_MAX)
+      throw std::runtime_error("Error: invalid argument");
+
+    int num = static_cast<int>(value);
     vector.push_back(num);
     deque.push_back(num);
   }
@@ -37,12 +44,12 @@ void PmergeMe::sort() {
   clock_t start_vec = clock();
   mergeInsertionSort(v);
   clock_t end_vec = clock();
-  double duration_vec = static_cast<double>(end_vec - start_vec) / (CLOCKS_PER_SEC);
-  
+  double duration_vec = static_cast<double>(end_vec - start_vec) / (CLOCKS_PER_SEC) * 1000000;
+
   clock_t start_dq = clock();
   mergeInsertionSort(d);
   clock_t end_dq = clock();
-  double duration_dq = static_cast<double>(end_dq - start_dq) / (CLOCKS_PER_SEC);
+  double duration_dq = static_cast<double>(end_dq - start_dq) / (CLOCKS_PER_SEC) * 1000000;
 
   std::cout << "After: ";
   printContainer(v);

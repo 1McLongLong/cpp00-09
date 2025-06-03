@@ -70,7 +70,6 @@ void BitcoinExchange::read_inputFile() {
       std::string date = line.substr(0, sep);
       std::string valueStr = line.substr(sep + 1);
       parseDate(date);
-      // parseValue(valueStr, line);
       valueStr = valueStr.substr(2);
       search(date, valueStr);
     }
@@ -103,13 +102,15 @@ void BitcoinExchange::parseDate(std::string date) {
     throw std::runtime_error("Error: bad input => " + date);
 
   int days_of_month[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
-  // Leap year check
+  
   bool is_leap = (year % 4 == 0 && (year % 100 != 0 || year % 400 == 0));
   int max_day = days_of_month[month - 1];
   if (month == 2 && is_leap)
     max_day = 29;
+  
   if (day > max_day)
     throw std::runtime_error("Error: bad input => " + date);
+
   if ((year == 2022 && month > 3) ||
      (year == 2022 && month == 3 && day > 29)) {
     throw std::runtime_error("Error: bad input => " + date);

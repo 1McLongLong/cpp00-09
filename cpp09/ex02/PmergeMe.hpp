@@ -8,6 +8,8 @@
 #include <exception>
 #include <ctime>
 #include <iomanip>
+#include <cerrno>
+#include <climits>
 
 class PmergeMe {
   public:
@@ -63,12 +65,11 @@ void PmergeMe::mergeInsertionSort(Container &container) {
 
   Container large;
   for (size_t i = 0; i < pairs.size(); i++)
-    large.push_back(pairs[i].first);                //////////////////////////////////////   HOW DOES push_back() and insert() work with vector and deque?
+    large.push_back(pairs[i].first);
 
   mergeInsertionSort(large);
   sorted = large;
 
-  // insert smaller element
   if (!pairs.empty()) {
     typename Container::iterator pos = std::lower_bound(sorted.begin(), sorted.end(), pairs[0].second);
     sorted.insert(pos, pairs[0].second);
@@ -76,8 +77,8 @@ void PmergeMe::mergeInsertionSort(Container &container) {
 
   std::vector<int> jacobsthal = jacobsthalSequence(pairs.size());
   for (size_t j = 1; j < jacobsthal.size(); j++) {
-    int start = jacobsthal[j - 1] + 1;   // one past the previous Jacobsthal
-    int end   = jacobsthal[j];           // up to (and including) this Jacobsthal
+    int start = jacobsthal[j - 1] + 1;
+    int end   = jacobsthal[j];
     // Insert all i in [start … end], as long as i < pairs.size()
     for (int i = start; i <= end && i < static_cast<int>(pairs.size()); i++) {
       typename Container::iterator pos = std::lower_bound(sorted.begin(), sorted.end(), pairs[i].second);
