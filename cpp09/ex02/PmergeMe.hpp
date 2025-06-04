@@ -63,12 +63,12 @@ void PmergeMe::mergeInsertionSort(Container &container) {
     has_odd = true;
   }
 
-  Container large;
+  Container big;
   for (size_t i = 0; i < pairs.size(); i++)
-    large.push_back(pairs[i].first);
+    big.push_back(pairs[i].first);
 
-  mergeInsertionSort(large);
-  sorted = large;
+  mergeInsertionSort(big);
+  sorted = big;
 
   if (!pairs.empty()) {
     typename Container::iterator pos = std::lower_bound(sorted.begin(), sorted.end(), pairs[0].second);
@@ -79,7 +79,7 @@ void PmergeMe::mergeInsertionSort(Container &container) {
   for (size_t j = 1; j < jacobsthal.size(); j++) {
     int start = jacobsthal[j - 1] + 1;
     int end   = jacobsthal[j];
-    // Insert all i in [start … end], as long as i < pairs.size()
+    // Insert all i in [start … end]
     for (int i = start; i <= end && i < static_cast<int>(pairs.size()); i++) {
       typename Container::iterator pos = std::lower_bound(sorted.begin(), sorted.end(), pairs[i].second);
       sorted.insert(pos, pairs[i].second);

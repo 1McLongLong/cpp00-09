@@ -14,7 +14,7 @@ int main (int argc, char *argv[]) {
     return 1;
   }
   if (argc == 2) {
-    if (is_space(argv[1])) {
+    if (is_space(argv[1]) || std::string(argv[1]) == "") {
       std::cout << "Error!!!" << std::endl;
       return 1;
     }

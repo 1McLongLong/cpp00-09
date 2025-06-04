@@ -9,9 +9,9 @@
 
 class BitcoinExchange {
   std::map<std::string, double> data;
-  std::ifstream input_file;
-  std::ifstream data_file;
-  std::string filename;
+  std::ifstream                 input_file;
+  std::ifstream                 data_file;
+  std::string                   filename;
 
   bool checkFloat(std::string value);
   void read_dataFile();
